@@ -57,7 +57,7 @@ meigensテーブルとtassテーブルの中間テーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|content|text|null: false, index: true, unique: true|
+|content|text|null: false, index: true|
 |user_id|reference|null: false, foregn_key: true|
 |meigen_id|reference|null: false, foregn_key: true|
 
