@@ -1,15 +1,13 @@
-# README
+
 # 最終課題 内容説明
-***
-# 概要
-***
+# 1.概要
 自身が感動・共感した名言を投稿できるオリジナルサービス。
 - 名言の発言者や元になった作品(書籍・映画etc...)の画像投稿
 - 投稿する画像は投稿者自身がアップロードするか他の投稿者がアップロードした画像を選択するかを選べる
 - 投稿者が感動した理由や場面を紹介できる
+- 名言には「いいね！」と「タグ付け」ができる
 
-# DB設計
-***
+# 2.DB設計
 
 ## users テーブル
 
@@ -40,7 +38,7 @@
 - has_many :likes, dependent: :destroy
 - has_many :commments, dependent: :destroy
 - has_many :meigen_tags
-- has_many :tags, through: :meigen_tags, dependent: :destroy
+- has_many :tags, through: :meigen_tags
 
 
 ## comments テーブル
@@ -90,3 +88,15 @@
 ### Association
 - belongs_to :meingen
 - belongs_to :tags
+
+
+# 3.DB設計補足
+- ## usersテーブル
+emailカラムとpasswordカラム：devise gemを使用する。
+- ## meigens テーブル
+名言のみ入力必須。他は空でも可。
+名言投稿が削除されると、その投稿に付けられたタグといいねも一緒に削除される。(dependent: :destroy)
+- ## tagsテーブル
+「acts-as-taggable-on」gemを使用して投稿(名言)にタグ付けする。
+- ## meigen_tags テーブル
+meigensテーブルとtassテーブルの中間テーブル。
