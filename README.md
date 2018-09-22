@@ -12,7 +12,7 @@
 - ## usersテーブル
 emailカラムとpasswordカラム：devise gemを使用する。
 - ## meigens テーブル
-名言投稿が削除されると、その投稿につけらr
+名言投稿が削除されると、その投稿につけられているタグといいねも同時に削除される。
 - ## tagsテーブル
 「acts-as-taggable-on」gemを使用して投稿(名言)にタグ付けする。
 - ## meigen_tags テーブル
@@ -82,7 +82,7 @@ meigensテーブルとtassテーブルの中間テーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, index: true, unique: true|
+|name|string|null: false, index: true|
 |meigen_id|reference|null: false, foregn_key: true|
 
 ### Association
