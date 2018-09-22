@@ -7,8 +7,19 @@
 - 投稿者が感動した理由や場面を紹介できる
 - 名言には「いいね！」と「タグ付け」ができる
 
-# 2.DB設計
 
+# 2.DB設計補足
+- ## usersテーブル
+emailカラムとpasswordカラム：devise gemを使用する。
+- ## meigens テーブル
+名言投稿が削除されると、その投稿につけらr
+- ## tagsテーブル
+「acts-as-taggable-on」gemを使用して投稿(名言)にタグ付けする。
+- ## meigen_tags テーブル
+meigensテーブルとtassテーブルの中間テーブル
+
+
+# 3.DB設計
 ## users テーブル
 
 |Column|Type|Options|
@@ -30,8 +41,9 @@
 |content|text|null: false, index: true|
 |scene|text||
 |image|string||
+|user_id|reference|foregn_key: true|
 |like_count|integer||
-|comment_count|integer||
+|comment_count|interger||
 
 ### Association
 - belongs_to :user
@@ -51,7 +63,7 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :meigen
+- belongs_to :meigen, counter_cache: true
 
 
 ## likes テーブル
@@ -63,7 +75,7 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :meigen
+- belongs_to :meigen, counter_cache: true
 
 
 ## tags テーブル
@@ -88,20 +100,3 @@
 ### Association
 - belongs_to :meingen
 - belongs_to :tags
-
-
-# 3.DB設計補足
-- ## usersテーブル
-emailカラムとpasswordカラム：devise gemを使用する。
-- ## meigens テーブル
-名言投稿が削除されると、その投稿につけらr
-- ## comments テーブル
-
-- ## likes テーブル
-
-- ## tagsテーブル
-「acts-as-taggable-on」gemを使用して投稿(名言)にタグ付けする。
-
-- ## meigen_tags テーブル
-meigensテーブルとtassテーブルの中間テーブル
-
