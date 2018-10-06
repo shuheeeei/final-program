@@ -1,0 +1,47 @@
+.intro-container {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  position: relative;
+  &--movie {
+    width: 100vw;
+    filter: brightness(120%);
+  }
+  &__message {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    p {
+      text-align: center;
+      color: white;
+      font-size:50px;
+      text-shadow:2px 2px 5px gray;
+      font-family: "Klee";
+    }
+  }
+  &__meigen-list-link {
+    position: absolute;
+    top: 65%;
+    left: 45%;
+    padding: 10px 15px;
+    font-size: 25px;
+    color: #FFFF00;
+    font-family: "Klee";
+    border: 3px solid #FFFF00;
+    border-radius: 10px;
+    display: inline-block;
+    a {
+      @include link-style();
+      color: #FFFF00;
+    }
+    &:hover {
+      background-color: #FFFF00;
+      cursor: pointer;
+      transition: 0.8s;
+      a {
+        color: #4169e1;
+        font-weight: bold;
+      }
+    }
+  }
+}

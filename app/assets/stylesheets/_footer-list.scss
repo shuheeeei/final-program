@@ -1,0 +1,20 @@
+
+.footer__list {
+  @include clearfix();
+  height: 60px;
+  width: calc(100vw - 20px);
+  padding: 0 10px;
+  line-height: 60px;
+  background-color: rgba(33, 37, 41, 0.6);
+  color: #FFFF00;
+  float: right;
+  li {
+    a {
+      @include link-style();
+      color: #FFFF00;
+    }
+    list-style: none;
+    float: left;
+    padding-right: 20px;
+  }
+}
