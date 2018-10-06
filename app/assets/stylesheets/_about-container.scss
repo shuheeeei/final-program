@@ -1,10 +1,9 @@
 .about-container {
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 150px);
   margin: 0 auto;
   padding-top:150px;
   background: linear-gradient( #9941D8, #1D62F0);
-  // background: linent(#05FBFF, #1D62F0 )
 
   &__explanation {
     @include clearfix();
