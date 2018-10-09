@@ -14,5 +14,7 @@ module FinalProgram
       g.helper false
       g.test_framework false
     end
+    config.i18n.default_locale = :ja
+    config.action_view.field_error_proc = proc { |input, instance| input }
   end
 end
