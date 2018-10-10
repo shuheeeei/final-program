@@ -1,0 +1,41 @@
+.account-management {
+  width: 50%;
+  height: 80vh;
+  margin: 0 auto;
+  padding: 0 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 15px solid #778899;
+  position: relative;
+  top: 10vh;
+  &__title
+    h1 {
+      font-weight: bold;
+      font-size: 30px;
+      text-align: center;
+    }
+  &__field {
+    padding: 10px 20px;
+    font-size: 20px;
+    &--width {
+      width: 100%;
+      border-color: skyblue;
+    }
+    &--btn {
+      background-color: #4169e1;
+      color: white;
+      font-size: 20px;
+      border-radius: 4px;
+      margin: 15px 0;
+      padding: 5px 15px;
+      border: none;
+      box-shadow: 3px 3px #000080;
+      outline: none;
+      &:active {
+        position: relative;
+        top: 3px;
+        left: 3px;
+        box-shadow: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.wrapper
+  .account-management
+    .account-management__title
+      %h1 パスワードを忘れましたか？
+      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        = devise_error_messages!
+        .account-management__field
+          = f.label :email
+          %br
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "account-management__field--width"
+        = f.submit "パスワード再発行", class: "account-management__field--btn"
+      = render "devise/shared/links"
+      = link_to "トップへ戻る", "/"

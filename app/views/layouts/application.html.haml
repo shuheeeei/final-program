@@ -4,29 +4,51 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FinalProgram
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
 
 
   %body
+  -if controller.controller_name == "sessions" || controller.controller_name == "registrations" || controller.controller_name == "passwords"
+    = yield
+
+  -else
     .header
       .header-nav
         .header-nav__title
-          = link_to "Weeee", "/"
-        .header-nav__menu
-          %ul
-            %li.header-nav__menu--content
-              =link_to "ABOUT", "/"
-            %li.header-nav__menu--content
-              =link_to "LOG-IN", "/"
-            %li.header-nav__menu--content
-              =link_to "SIGN-UP", "/"
+          = link_to "Weeeeee", "/"
+        - if user_signed_in?
+          .header-nav__menu
+            %ul
+              %li.header-nav__menu--content
+                =link_to "マイページ", "/" #編集中
+              %li.header-nav__menu--content
+                =link_to "検索", "/"  #編集中
+              %li.header-nav__menu--content
+                =link_to "ログアウト", destroy_user_session_path, method: :delete
+          .notice
+            = notice
+          .alert
+            = alert
+        - else
+          .header-nav__menu
+            %ul
+              %li.header-nav__menu--content
+                =link_to "[アプリ名]とは", "/" #編集中(jQuery使用予定)
+              %li.header-nav__menu--content
+                =link_to "ログイン", new_user_session_path
+              %li.header-nav__menu--content
+                =link_to "新規登録", new_user_registration_path
+          .notice
+            = notice
+          .alert
+            = alert
     = yield
 
-  %footer
-    .footer__list
-      %ul
-        %li
-          =link_to "よくある質問", "/"
-        %li
-          =link_to "使い方", "/"
+    %footer
+      .footer__list
+        %ul
+          %li
+            =link_to "よくある質問", "/"
+          %li
+            =link_to "使い方", "/"
