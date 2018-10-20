@@ -1,0 +1,62 @@
+.wrapper-for-meigen-show
+  .meigen-show-container
+    .meigen-show-container__header
+      .meigen-show-container__header--information
+        %ul
+          %li
+            = @meigen.user.name
+            さんの投稿
+          %li
+            = @meigen.created_at
+      .meigen-show-container__header--editor
+        - if current_user.id == @meigen.user_id
+          %ul
+            %li
+              = link_to "編集", meigens_path
+            %li
+              = link_to "削除", "/"
+
+    .meigen-show-container__content
+      .meigen-show-container__content__header
+        .meigen-show-container__content__header--left
+          %h1 画像
+        .meigen-show-container__content__header--right
+          %h1 名言
+      .meigen-show-container__content__left-content
+        = image_tag(@meigen.image, height: '80')
+      .meigen-show-container__content__right-content
+
+        .meigen-show-container__content__right-content__meigen
+          = simple_format(@meigen.content)
+
+    .meigen-show-container__scene-box
+      .meigen-show-container__scene-box__header
+        .meigen-show-container__scene-box__header--left
+          / %h1
+        .meigen-show-container__scene-box__header--right
+          %h1 シーン
+      .meigen-show-container__scene-box__left-content
+        / %i.far.fa-flushed
+      .meigen-show-container__scene-box__right-content
+        .meigen-show-container__scene-box__right-content__scene
+          = @meigen.scene
+
+    .meigen-show-container__sns-function-bar
+      .meigen-show-container__sns-function-bar__box
+        %ul
+          %li
+            %i.far.fa-comment
+              3
+              / コメント機能未実装のため手入力
+          %li
+            %i.fas.fa-heart
+              1
+              / いいね機能未実装のため手入力
+      .meigen-show-container__sns-function-bar__comment
+        / コメント機能未実装のため手入力
+
+    %ul
+      %li
+        = link_to "一覧へ戻る", meigens_path
+      %li
+        = link_to "トップへ戻る", "/"

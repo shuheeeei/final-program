@@ -1,0 +1,141 @@
+.wrapper-for-meigen-show {
+  padding-top: 70px;
+  width: 100%;
+  height: calc(100vh - 130px);
+  background-image: url("background2.jpg");
+  object-fit: cover;
+
+  .meigen-show-container {
+    width: 50vw;
+    margin: 0 auto;
+    padding: 0 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    &__header {
+      @include clearfix();
+      margin-top: 10px;
+      padding-top: 5px;
+      &--information {
+        float: left;
+        ul {
+          li {
+            margin-right:20px;
+            float: left;
+          }
+        }
+      }
+      &--editor {
+        float: right;
+        ul {
+          li {
+            margin-right:20px;
+            float: left;
+          }
+        }
+      }
+    }
+    &__content {
+      @include clearfix();
+      width: 100%;
+      padding: 10px 0;
+      &__header {
+        @include clearfix();
+        width: 100%;
+        font-size: 20px;
+        &--left {
+          float: left;
+          width: 85px;
+          text-align: center;
+        }
+        &--right {
+          float: right;
+          width: calc(100% - 97px);
+          text-align: center;
+        }
+      }
+      &__left-content {
+        float: left;
+        width: 70px;
+        height: 70px;
+        margin: 0 15px 140px 0;
+        img {
+          border: 5px solid #8da0b6;
+        }
+      }
+      &__right-content {
+        float: right;
+        width: calc(100% - 97px);
+        &__meigen {
+          height: 200px;
+          width: 90%;
+          border: 10px solid #8da0b6;
+          padding: 0 1vw;
+          position: relative;
+          display: inline-block;
+          font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+          font-size: 25px;
+          &:before {
+            content: "";
+            position: absolute;
+            top: 15%;
+            right: calc(100% + 5px);
+            margin-top: -15px;
+            border: 15px solid transparent;
+            border-right: 20px solid #8da0b6;
+          }
+        }
+      }
+    }
+
+    &__sns-function-bar {
+      width: 100%;
+      @include clearfix();
+      &__box {
+        float: right;
+        display: inline-block;
+        ul {
+          li {
+            margin-right:20px;
+            float: left;
+          }
+        }
+      }
+    }
+
+    &__scene-box {
+      @include clearfix();
+      width: 50vw;
+      margin: 0 auto 10px;
+      &__header {
+        @include clearfix();
+        width: 100%;
+        font-size: 20px;
+        &--left {
+          float: left;
+          width: 85px;
+          text-align: center;
+        }
+        &--right {
+          float: right;
+          width: calc(100% - 97px);
+          text-align: center;
+        }
+      }
+      &__left-content {
+        float: left;
+        line-height: 50px;
+        font-size: 30px;
+        width: 70px;
+      }
+      &__right-content {
+        float: right;
+        width: calc(100% - 97px);
+        &__scene {
+            height: 100px;
+            width: 90%;
+            border: 10px solid #8da0b6;
+            padding: 0 1vw;
+        }
+      }
+    }
+  }
+}
