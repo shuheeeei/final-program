@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   validates :email, uniqueness: true, null: false
   validates :name, presence: true, uniqueness: true, null: false
+
+  has_many :meigens
 end
