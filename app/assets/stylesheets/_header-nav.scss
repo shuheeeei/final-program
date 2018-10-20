@@ -49,6 +49,22 @@
         @include link-style();
         color: #FFFF00;
       }
+      &--small {
+        font-size: 15px;
+      }
+      &--post-btn {
+        a {
+          font-size: 18px;
+          font-weight: bold;
+          background-color: rgba(0, 63, 142, 1);
+          padding: 10px 20px;
+          border-radius: 20px;
+          &:hover {
+            cursor: pointer;
+            background-color: rgba(38, 73, 157, 1);
+          }
+        }
+      }
     }
   }
 }

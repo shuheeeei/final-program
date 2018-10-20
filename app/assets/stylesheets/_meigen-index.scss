@@ -1,0 +1,123 @@
+.wrapper-for-meigen-index {
+  padding-top: 70px;
+  width: 100%;
+  background-image: url("notebook_@2X.png");
+  background-attachment: fixed;
+  background-position: right bottom;
+  overflow: scroll;
+
+  .meigen-container {
+    width: 40vw;
+    margin: 0 auto;
+    padding: 0 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+
+    &__header {
+      @include clearfix();
+      margin-top: 10px;
+      padding-top: 5px;
+      &--information {
+        float: left;
+        ul {
+          li {
+            margin-right:20px;
+            float: left;
+          }
+        }
+      }
+      &--access-detail {
+        float: right;
+        width: 10%;
+        height: 30px;
+        text-align: center;
+        img {
+          width: 20px;
+          transform: rotate( 90deg );
+        }
+      }
+    }
+    &__content {
+      min-height: 220px;
+      width: 100%;
+      padding-top: 10px;
+      &__left-content {
+        float: left;
+        width: 70px;
+        height: 70px;
+        margin: 0 15px 140px 0;
+        img {
+          border: 5px solid #8da0b6;
+        }
+      }
+      &__right-content {
+        float: right;
+        width: calc(100% - 97px);
+        &__meigen {
+          height: 200px;
+          width: 90%;
+          border: 10px solid #8da0b6;
+          padding: 0 1vw;
+          position: relative;
+          display: inline-block;
+          font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+          font-size: 25px;
+          &:before {
+            content: "";
+            position: absolute;
+            top: 15%;
+            right: calc(100% + 5px);
+            margin-top: -15px;
+            border: 15px solid transparent;
+            border-right: 20px solid #8da0b6;
+          }
+        }
+      }
+    }
+
+    &__sns-function-bar {
+      width: 100%;
+      @include clearfix();
+      &__box {
+        float: right;
+        display: inline-block;
+        ul {
+          li {
+            margin-right:20px;
+            float: left;
+          }
+        }
+      }
+    }
+
+    &__scene-displayer {
+      width: 100%;
+      text-align: center;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &__scene-container {
+      @include clearfix();
+      width: 40vw;
+      margin: 0 auto 10px;
+      padding-bottom: 10px;
+      &__left-content {
+        float: left;
+        line-height: 50px;
+        font-size: 30px;
+        width: 70px;
+      }
+      &__right-content {
+        float: right;
+        width: calc(100% - 97px);
+        &__scene {
+            height: 100px;
+            width: 90%;
+            border: 10px solid #8da0b6;
+            padding: 0 1vw;
+        }
+      }
+    }
+  }
+}
