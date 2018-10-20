@@ -1,0 +1,62 @@
+.error-message {
+  width: 100%;
+  position: relative;
+  top: 60px;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  background-color: red;
+}
+
+.post-contaner {
+  width: 50%;
+  height: 80vh;
+  margin: 0 auto;
+  padding: 0 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 15px solid #778899;
+  position: relative;
+  top: 10vh;
+  &__header {
+    h1 {
+      font-weight: bold;
+      font-size: 30px;
+      text-align: center;
+    }
+  }
+  &__meigen-content {
+    padding: 10px 20px;
+    font-size: 20px;
+    &--form_image {
+      font-size: 50px;
+    }
+    .camera-cursor:hover {
+      cursor: pointer;
+    }
+    &--size {
+      width: 100%;
+      height: 85px;
+      border-color: skyblue;
+    }
+    .hidden {
+      display: none;
+    }
+  }
+  &__submit-btn {
+    background-color: #4169e1;
+    color: white;
+    font-size: 20px;
+    border-radius: 4px;
+    margin: 15px 0;
+    padding: 5px 15px;
+    border: none;
+    box-shadow: 3px 3px #000080;
+    outline: none;
+    &:active {
+      position: relative;
+      top: 3px;
+      left: 3px;
+      box-shadow: none;
+    }
+  }
+}

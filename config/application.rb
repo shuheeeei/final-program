@@ -16,5 +16,9 @@ module FinalProgram
     end
     config.i18n.default_locale = :ja
     config.action_view.field_error_proc = proc { |input, instance| input }
+    config.active_record.default_timezone = :ja
+    config.time_zone = 'Tokyo'
   end
 end
+
+Time::DATE_FORMATS[:default] = '%Y/%m/%d %H:%M'

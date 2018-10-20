@@ -1,0 +1,45 @@
+.wrapper-for-meigen-edit
+  .meigen-edit-container
+    .meigen-edit-container__header
+      .meigen-edit-container__header--information
+        %ul
+          %li
+            = @meigen.user.name
+            さんの投稿
+          %li
+            = @meigen.created_at
+
+    = form_for @meigen do |f|
+      .meigen-edit-container__content
+        .meigen-edit-container__content__header
+          .meigen-edit-container__content__header--left
+            %h1 画像
+          .meigen-edit-container__content__header--right
+            %h1 名言
+        .meigen-edit-container__content__left-content
+          = image_tag(@meigen.image)
+          = f.label :image do
+            %h1 画像再設定:
+            = fa_icon "camera", class: "camera-cursor"
+            = f.file_field :image, class: "hidden"
+        .meigen-edit-container__content__right-content
+          = f.text_area :content, value: "#{@meigen.content}", class: "size"
+
+      .meigen-edit-container__scene-box
+        .meigen-edit-container__scene-box__header
+          .meigen-edit-container__scene-box__header--left
+            / %h1
+          .meigen-edit-container__scene-box__header--right
+            %h1 役立ったシーン
+        .meigen-edit-container__scene-box__left-content
+          / %i.far.fa-flushed
+        .meigen-edit-container__scene-box__right-content
+          .meigen-edit-container__scene-box__right-content__scene
+            = f.text_area :scene, value: "#{@meigen.scene}", class: "size"
+          = f.submit "投稿する", class: "post-contaner__submit-btn"
+
+    %ul
+      %li
+        = link_to "一覧へ戻る", meigens_path
+      %li
+        = link_to "トップへ戻る", "/"

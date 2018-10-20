@@ -1,0 +1,41 @@
+.wrapper-for-meigen-index
+  - @meigens.each do |meigen|
+    .meigen-container
+      .meigen-container__header
+        .meigen-container__header--information
+          %ul
+            %li
+              投稿者：
+              = meigen.user.name
+            %li
+              = meigen.created_at
+        .meigen-container__header--access-detail
+          = link_to image_tag( 'arrow.png', { border: '0', alt: '新規登録' } ), "/meigens/#{meigen.id}"
+      .meigen-container__content
+        .meigen-container__content__left-content
+          = image_tag(meigen.image, height: '80')
+        .meigen-container__content__right-content
+          .meigen-container__content__right-content__meigen
+            = simple_format(meigen.content)
+
+      .meigen-container__sns-function-bar
+        .meigen-container__sns-function-bar__box
+          %ul
+            %li
+              %i.far.fa-comment
+                3
+                / コメント機能未実装のため手入力
+            %li
+              %i.fas.fa-heart
+                1
+                / いいね機能未実装のため手入力
+
+      .meigen-container__scene-displayer
+        %i.fas.fa-chevron-down.accordion-btn
+
+      .meigen-container__scene-container
+        .meigen-container__scene-container__left-content
+          / %i.far.fa-flushed
+        .meigen-container__scene-container__right-content
+          .meigen-container__scene-container__right-content__scene
+            = meigen.scene
