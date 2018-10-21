@@ -2,24 +2,24 @@
   .error-message
     - @meigen.errors.full_messages.each do |message|
       = message
-  .post-contaner
-    .post-contaner__header
+  .post-container
+    .post-container__header
       %h1 名言の投稿
     = form_for @meigen do |f|
-      .post-contaner__meigen-content
+      .post-container__meigen-content
         = f.label :content do
           %h1 ◆名言の入力(※必須)
-        = f.text_area :content, placeholder: "名言を入力してください", class: "post-contaner__meigen-content--size"
-      .post-contaner__meigen-content
+        = f.text_area :content, placeholder: "名言を入力してください", class: "post-container__meigen-content--size"
+      .post-container__meigen-content
         = f.label :scene do
           %h1 ◆どんなシーン？
-        = f.text_area :scene, placeholder: "名言が役立ったシーンを書きましょう", class: "post-contaner__meigen-content--size"
-      .post-contaner__meigen-content
-        = f.label :image, class: "post-contaner__meigen-content--form-image" do
+        = f.text_area :scene, placeholder: "名言が役立ったシーンを書きましょう", class: "post-container__meigen-content--size"
+      .post-container__meigen-content
+        = f.label :image, class: "post-container__meigen-content--form-image" do
           ◆名言の出典がわかる画像を投稿：
           = fa_icon "camera", class: "camera-cursor"
           = f.file_field :image, class: "hidden"
-      = f.submit "投稿する", class: "post-contaner__submit-btn"
+      = f.submit "投稿する", class: "post-container__submit-btn"
     %ul
       %li
         = link_to "一覧へ戻る", "/meigens"

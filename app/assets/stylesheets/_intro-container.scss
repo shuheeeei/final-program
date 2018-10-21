@@ -19,26 +19,24 @@
       font-family: "Klee";
     }
   }
-  &__meigen-list-link {
+  a {
+    @include link-style();
+    color: #FFFF00;
     position: absolute;
     top: 65%;
     left: 45%;
-    padding: 10px 15px;
     font-size: 25px;
     color: #FFFF00;
     font-family: "Klee";
-    border: 3px solid #FFFF00;
-    border-radius: 10px;
-    display: inline-block;
-    a {
-      @include link-style();
-      color: #FFFF00;
-    }
-    &:hover {
-      background-color: #FFFF00;
-      cursor: pointer;
-      transition: 0.8s;
-      a {
+    .meigen-list-link {
+      padding: 10px 15px;
+      border: 3px solid #FFFF00;
+      border-radius: 10px;
+      display: inline-block;
+      &:hover {
+        background-color: #FFFF00;
+        cursor: pointer;
+        transition: 0.8s;
         color: #4169e1;
         font-weight: bold;
       }

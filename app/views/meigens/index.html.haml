@@ -13,7 +13,7 @@
           = link_to image_tag( 'arrow.png', { border: '0', alt: '新規登録' } ), "/meigens/#{meigen.id}"
       .meigen-container__content
         .meigen-container__content__left-content
-          = image_tag(meigen.image, height: '80')
+          = image_tag(meigen.image, width: '80')
         .meigen-container__content__right-content
           .meigen-container__content__right-content__meigen
             = simple_format(meigen.content)

@@ -1,3 +1,7 @@
+body {
+  background-image: url("clouds-dawn-evening.jpg");
+  background-size: cover;
+}
 .header-nav {
   position: fixed;
   @include clearfix();
@@ -14,25 +18,6 @@
     font-size: 40px;
     padding-left: 10px;
   }
-  .notice {
-    color: white;
-    font-weight: bold;
-    margin-top: 60px;
-    display: block;
-    width:100%;
-    text-align: center;
-    background-color: #008000;
-  }
-    .alert {
-    color: white;
-    font-weight: bold;
-    margin-top: 60px;
-    display: block;
-    width:100%;
-    text-align: center;
-    background-color: #dc143c;
-    }
-
   &__menu {
     padding-right: 10px;
     font-size: 20px;
@@ -67,5 +52,20 @@
       }
     }
   }
+  .header-notice {
+    color: white;
+    font-weight: bold;
+    margin-top: 60px;
+    text-align: center;
+    background-color: #008000;
+    clear: both;
+  }
+  .header-alert {
+    color: white;
+    font-weight: bold;
+    margin-top: 60px;
+    display: block;
+    text-align: center;
+    background-color: #dc143c;
+  }
 }
-

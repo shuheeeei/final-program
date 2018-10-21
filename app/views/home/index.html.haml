@@ -3,12 +3,12 @@
   = video_tag 'Time-Lapse-Video-Of-Sunrise-By-The-Sea.webm', autoplay: true, loop: true, muted: true, class: 'intro-container--movie'
   .intro-container__message
     %p 名言を聞くだけから 使いこなすへ(適当)
-  .intro-container__meigen-list-link
-    = link_to "投稿一覧へ", meigens_path
+  = link_to meigens_path do
+    .meigen-list-link
+      投稿一覧へ
 
 .about-container
   .about-container__explanation
-    .fab.fa-connectdevelop.fa-pull-left.fa-spin.logo
     .about-container__explanation__subject
       %h1 Weeeeとは
       %p このサービスの説明文が２行くらい入ります。
