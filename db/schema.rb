@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181013031734) do
+ActiveRecord::Schema.define(version: 20181021063139) do
+
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id"
+    t.bigint "meigen_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meigen_id"], name: "index_likes_on_meigen_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
 
   create_table "meigens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content", null: false
@@ -19,6 +28,7 @@ ActiveRecord::Schema.define(version: 20181013031734) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "likes_count", default: 0
     t.index ["user_id"], name: "index_meigens_on_user_id"
   end
 
@@ -40,5 +50,7 @@ ActiveRecord::Schema.define(version: 20181013031734) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "likes", "meigens"
+  add_foreign_key "likes", "users"
   add_foreign_key "meigens", "users"
 end
