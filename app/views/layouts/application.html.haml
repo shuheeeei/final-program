@@ -7,7 +7,6 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
 
-
   %body
   -if controller.controller_name == "sessions" || controller.controller_name == "registrations" || controller.controller_name == "passwords"
     = yield
@@ -28,9 +27,9 @@
                 =link_to "ログアウト", destroy_user_session_path, method: :delete
               %li.header-nav__menu--content.header-nav__menu--content--post-btn
                 =link_to "投稿する", new_meigen_path
-          .notice
+          .header-notice
             = notice
-          .alert
+          .header-alert
             = alert
         - else
           .header-nav__menu
@@ -41,9 +40,9 @@
                 =link_to "ログイン", new_user_session_path
               %li.header-nav__menu--content
                 =link_to "新規登録", new_user_registration_path
-          .notice
+          .header-notice
             = notice
-          .alert
+          .header-alert
             = alert
     = yield
 
