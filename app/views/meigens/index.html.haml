@@ -25,10 +25,9 @@
               %i.far.fa-comment
                 3
                 / コメント機能未実装のため手入力
-            %li
-              %i.fas.fa-heart
-                1
-                / いいね機能未実装のため手入力
+            %li{class: "like-heart-#{meigen.id}"}
+              = render partial: "meigens/like-view", locals: { meigen: meigen }
+
 
       .meigen-container__scene-displayer
         %i.fas.fa-chevron-down.accordion-btn
