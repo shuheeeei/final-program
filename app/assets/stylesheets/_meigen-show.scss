@@ -6,25 +6,26 @@
   object-fit: cover;
 
   .meigen-show-container {
-    width: 50vw;
+    width: 80vw;
     margin: 0 auto;
-    padding: 0 10px;
+    padding: 10px;
     background-color: rgba(255, 255, 255, 0.8);
+
     &__header {
-      @include clearfix();
-      margin-top: 10px;
-      padding-top: 5px;
-      &--information {
-        float: left;
+      // @include clearfix();
+      &__information {
+        // float: left;
+        // width: 60%;
         ul {
           li {
-            margin-right:20px;
             float: left;
+            margin-right:20px;
           }
         }
       }
-      &--editor {
+      &__edit {
         float: right;
+        width: 40%;
         ul {
           li {
             margin-right:20px;
@@ -33,42 +34,41 @@
         }
       }
     }
+
     &__content {
       @include clearfix();
       width: 100%;
       padding: 10px 0;
-      &__header {
-        @include clearfix();
-        width: 100%;
-        font-size: 20px;
-        &--left {
-          float: left;
-          width: 85px;
-          text-align: center;
-        }
-        &--right {
-          float: right;
-          width: calc(100% - 97px);
-          text-align: center;
-        }
-      }
-      &__left-content {
+      &__left {
         float: left;
-        width: 70px;
-        height: 70px;
-        margin: 0 15px 140px 0;
-        img {
-          border: 5px solid #8da0b6;
+        width: 85px;
+        &__header {
+          width: 100%;
+          font-size: 20px;
+          text-align: center;
+        }
+        &__image {
+          img {
+            width: 80px;
+            border: 5px solid #8da0b6;
+          }
         }
       }
-      &__right-content {
+      &__right {
         float: right;
         width: calc(100% - 97px);
+        &__header {
+          width: 100%;
+          font-size: 20px;
+          text-align: center;
+        }
         &__meigen {
+          float: right;
+          margin-right: 50px;
           height: 200px;
-          width: 90%;
+          width: 80%;
           border: 10px solid #8da0b6;
-          padding: 0 1vw;
+          padding: 0 20px;
           position: relative;
           display: inline-block;
           font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
@@ -86,6 +86,37 @@
       }
     }
 
+
+    &__scene-content {
+      @include clearfix();
+      width: 50vw;
+      margin-bottom: 10px;
+      &__left {
+        float: left;
+        &__header {
+          display: none;
+        }
+        &__face {
+          .far {
+            display: none;
+          }
+        }
+      }
+      &__right {
+        float: right;
+        width: calc(100% - 117px);
+        &__header {
+          font-size: 20px;
+        }
+        &__scene {
+          height: 100px;
+          border: 10px solid #8da0b6;
+          padding: 0 1vw;
+        }
+      }
+    }
+
+
     &__sns-function-bar {
       width: 100%;
       @include clearfix();
@@ -101,41 +132,5 @@
       }
     }
 
-    &__scene-box {
-      @include clearfix();
-      width: 50vw;
-      margin: 0 auto 10px;
-      &__header {
-        @include clearfix();
-        width: 100%;
-        font-size: 20px;
-        &--left {
-          float: left;
-          width: 85px;
-          text-align: center;
-        }
-        &--right {
-          float: right;
-          width: calc(100% - 97px);
-          text-align: center;
-        }
-      }
-      &__left-content {
-        float: left;
-        line-height: 50px;
-        font-size: 30px;
-        width: 70px;
-      }
-      &__right-content {
-        float: right;
-        width: calc(100% - 97px);
-        &__scene {
-            height: 100px;
-            width: 90%;
-            border: 10px solid #8da0b6;
-            padding: 0 1vw;
-        }
-      }
-    }
   }
 }
