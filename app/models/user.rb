@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true, null: false
 
   has_many :meigens
+  has_many :likes, dependent: :destroy
 end

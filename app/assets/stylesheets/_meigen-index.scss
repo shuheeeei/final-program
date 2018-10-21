@@ -84,6 +84,16 @@
           li {
             margin-right:20px;
             float: left;
+            a {
+              @include link-style();
+              padding-right: 3px;
+              .fas{
+                color: #ff6347;
+              }
+              .far {
+                color: black;
+              }
+            }
           }
         }
       }
