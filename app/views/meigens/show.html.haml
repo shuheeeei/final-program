@@ -1,45 +1,50 @@
 .wrapper-for-meigen-show
+
   .meigen-show-container
+
     .meigen-show-container__header
-      .meigen-show-container__header--information
+      .meigen-show-container__header__information
         %ul
           %li
             = @meigen.user.name
             さんの投稿
           %li
+            投稿時間:
             = @meigen.created_at
-      .meigen-show-container__header--editor
+      .meigen-show-container__header__edit
         - if current_user.id == @meigen.user_id
           %ul
             %li
-              = link_to "編集", "/meigens/#{@meigen.id}/edit"
+              = link_to "編集", meigens_path
             %li
-              = link_to "削除", "/meigens/#{@meigen.id}", method: :delete
+              = link_to "削除", "/"
 
     .meigen-show-container__content
-      .meigen-show-container__content__header
-        .meigen-show-container__content__header--left
+      .meigen-show-container__content__left
+        .meigen-show-container__content__left__header
           %h1 画像
-        .meigen-show-container__content__header--right
-          %h1 名言
-      .meigen-show-container__content__left-content
-        = image_tag(@meigen.image, height: '80')
-      .meigen-show-container__content__right-content
+        .meigen-show-container__content__left__image
+          = image_tag(@meigen.image)
 
-        .meigen-show-container__content__right-content__meigen
+      .meigen-show-container__content__right
+        .meigen-show-container__content__right__header
+          %h1 名言
+        .meigen-show-container__content__right__meigen
           = simple_format(@meigen.content)
 
-    .meigen-show-container__scene-box
-      .meigen-show-container__scene-box__header
-        .meigen-show-container__scene-box__header--left
-          / %h1
-        .meigen-show-container__scene-box__header--right
+
+    .meigen-show-container__scene-content
+      .meigen-show-container__scene-content__left
+        .meigen-show-container__scene-content__left__header
+        .meigen-show-container__scene-box__left__face
+          / %i.far.fa-flushed
+
+      .meigen-show-container__scene-content__right
+        .meigen-show-container__scene-content__right__header
           %h1 シーン
-      .meigen-show-container__scene-box__left-content
-        / %i.far.fa-flushed
-      .meigen-show-container__scene-box__right-content
-        .meigen-show-container__scene-box__right-content__scene
-          = @meigen.scene
+        .meigen-show-container__scene-content__right__scene
+          = simple_format(@meigen.scene)
+
 
     .meigen-show-container__sns-function-bar
       .meigen-show-container__sns-function-bar__box
@@ -48,10 +53,8 @@
             %i.far.fa-comment
               3
               / コメント機能未実装のため手入力
-          %li
-            %i.fas.fa-heart
-              1
-              / いいね機能未実装のため手入力
+          %li{class: "like-heart-#{@meigen.id}"}
+            = render partial: "meigens/like-view", locals: { meigen: @meigen }
       .meigen-show-container__sns-function-bar__comment
         / コメント機能未実装のため手入力
 
