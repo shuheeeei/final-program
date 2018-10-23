@@ -1,8 +1,8 @@
 - if meigen.like_user(current_user.id)
   = link_to meigen_like_path(meigen, meigen.like_user(current_user.id)), method: :delete, remote: true do
-    %i.fas.fa-heart
+    %i.fas.fa-bullhorn.already-like
   = meigen.likes_count
 - else
   = link_to meigen_likes_path(meigen), method: :post, remote: true do
-    %i.far.fa-heart
+    %i.fas.fa-bullhorn.not-yet-like
   = meigen.likes_count

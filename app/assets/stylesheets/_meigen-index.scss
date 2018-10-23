@@ -87,10 +87,10 @@
             a {
               @include link-style();
               padding-right: 3px;
-              .fas{
+              .already-like {
                 color: #ff6347;
               }
-              .far {
+              .not-yet-like {
                 color: black;
               }
             }
