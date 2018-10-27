@@ -26,17 +26,18 @@ class MeigensController < ApplicationController
   def update
     meigen = Meigen.find(params[:id])
     meigen.update(meigen_params) if meigen.user_id == current_user.id
-    redirect_to("/meigens")
+    redirect_to meigens_path
   end
 
   def show
     @meigen = Meigen.find(params[:id])
+    @comment = Comment.new
   end
 
   def destroy
     meigen = Meigen.find(params[:id])
     meigen.destroy
-    redirect_to("/meigens")
+    redirect_to meigens_path
   end
 
   private

@@ -1,0 +1,11 @@
+.meigen-show-container__comment-box__index__items{class: "comment-id-#{comment.id}"}
+  .meigen-show-container__comment-box__index__items__left
+    %p
+      = comment.user.name
+      ：
+  - if comment.user_id == current_user.id
+    .meigen-show-container__comment-box__index__items__center
+      %p
+        = comment.content
+    = link_to meigen_comment_path(comment.meigen_id, comment.id), method: :delete, remote: true, class: "delete-cross" do
+      %i.fas.fa-times

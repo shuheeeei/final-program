@@ -4,6 +4,7 @@
   height: calc(100vh - 130px);
   background-image: url("background2.jpg");
   object-fit: cover;
+  overflow: scroll;
 
   .meigen-show-container {
     width: 80vw;
@@ -57,7 +58,8 @@
         }
         &__image {
           img {
-            width: 90%;
+            min-width: 100px;
+            max-width: 300px;
             border: 2px solid #8da0b6;
           }
         }
@@ -156,6 +158,72 @@
                 color: black;
               }
             }
+          }
+        }
+      }
+    }
+
+    &__comment-box {
+      @include clearfix();
+      width: calc(80vw - 30%);
+      margin: 0 auto 10px;
+      padding-bottom: 10px;
+      padding-left: 30%;
+      box-shadow: 0 2px 4px #708090;
+      overflow: scroll;
+      &__comment {
+        textarea{
+          width: calc(70% - 30px);
+          margin-top: 10px;
+          margin-right: 100px;
+          padding: 10px;
+          border: 1px solid #d8d8d8;
+          border-radius: 5px;
+        }
+        .comment-submit-btn {
+          background-color: #4169e1;
+          color: white;
+          font-size: 20px;
+          border-radius: 4px;
+          margin: 15px 0;
+          padding: 5px 15px;
+          border: none;
+          box-shadow: 3px 3px #000080;
+          outline: none;
+          margin: 0 auto 20px;
+          &:active {
+            position: relative;
+            top: 3px;
+            left: 3px;
+            box-shadow: none;
+          }
+        }
+      }
+      &__index {
+        &__items {
+        @include clearfix();
+        box-shadow: 0 2px 4px #708090;
+        background-color: rgba(0, 0, 102, 0.5);
+        margin: 5px 10% 5px 0;
+        padding-left: 3px;
+          &__left {
+            color: white;
+            float: left;
+            width: 15%;
+            border-right: 1px solid white;
+          }
+          &__center {
+            color: white;
+            float: left;
+            width: 80%;
+            padding-left: 5px
+          }
+          &__right {
+            float: left;
+            width: 5%;
+          }
+          .delete-cross {
+            color: white;
           }
         }
       }

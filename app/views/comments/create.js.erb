@@ -1,0 +1,7 @@
+$(".meigen-show-container__comment-box__index").append("<%= j(render partial: 'meigens/comment-view', locals: { comment: @comment }) %>");
+$("#comment-area").val('');
+
+var html = `<i class="far fa-comment">
+              <%= @comment.meigen.comments_count %>
+            </i>`
+$("#comment-counter").html(html);

@@ -1,0 +1,6 @@
+$(".comment-id-<%= @comment.id %>").remove();
+
+var html = `<i class="far fa-comment">
+              <%= @comment.meigen.comments_count %>
+            </i>`
+$("#comment-counter").html(html);

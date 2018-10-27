@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :meigens do
     resources :likes, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
 
   resources :users, only: [:edit, :update]
