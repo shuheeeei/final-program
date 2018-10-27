@@ -15,9 +15,9 @@
         - if current_user.id == @meigen.user_id
           %ul
             %li
-              = link_to "編集", meigens_path
+              = link_to "編集", edit_meigen_path(@meigen.id)
             %li
-              = link_to "削除", "/"
+              = link_to "削除", meigen_path(@meigen.id), method: :delete
 
     .meigen-show-container__content
       .meigen-show-container__content__left
@@ -50,13 +50,21 @@
       .meigen-show-container__sns-function-bar__box
         %ul
           %li
-            %i.far.fa-comment
-              3
-              / コメント機能未実装のため手入力
+            #comment-counter
+              %i.far.fa-comment
+              = @meigen.comments_count
           %li{class: "like-heart-#{@meigen.id}"}
-            = render partial: "meigens/like-view", locals: { meigen: @meigen }
-      .meigen-show-container__sns-function-bar__comment
-        / コメント機能未実装のため手入力
+            = render partial: "like-view", locals: { meigen: @meigen }
+
+    .meigen-show-container__comment-box
+      .meigen-show-container__comment-box__comment
+        = form_for @comment, url: meigen_comments_path(@meigen), remote: true do |f|
+          = f.text_area :content, placeholder: "コメントする", id: "comment-area"
+          = f.submit "コメントする", class: "comment-submit-btn"
+      %h2 ＜コメント一覧＞
+      .meigen-show-container__comment-box__index
+        = render partial: "comment-view", collection: @meigen.comments, as: "comment"
+
 
     %ul
       %li

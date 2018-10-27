@@ -23,8 +23,7 @@
           %ul
             %li
               %i.far.fa-comment
-                3
-                / コメント機能未実装のため手入力
+                = meigen.comments_count
             %li{class: "like-heart-#{meigen.id}"}
               = render partial: "meigens/like-view", locals: { meigen: meigen }
 
