@@ -15,7 +15,7 @@
     .header
       .header-nav
         .header-nav__title
-          = link_to "Weeeeee", "/"
+          = link_to "[WIP]なまえ", "/"
         - if user_signed_in?
           .header-nav__menu
             %ul
@@ -35,7 +35,7 @@
           .header-nav__menu
             %ul
               %li.header-nav__menu--content
-                =link_to "[アプリ名]とは", "/" #編集中(jQuery使用予定)
+                =link_to "[アプリ名]とは", "#about"
               %li.header-nav__menu--content
                 =link_to "ログイン", new_user_session_path
               %li.header-nav__menu--content

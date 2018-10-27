@@ -23,9 +23,10 @@
       .meigen-show-container__content__left
         .meigen-show-container__content__left__header
           %h1 画像
-        .meigen-show-container__content__left__image
+        .meigen-show-container__content__left__image.auto-icons{id: "/meigens/#{@meigen.id}"}
           = image_tag(@meigen.image)
-
+          %p
+            = @meigen.source
       .meigen-show-container__content__right
         .meigen-show-container__content__right__header
           %h1 名言
