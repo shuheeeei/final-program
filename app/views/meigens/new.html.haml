@@ -11,6 +11,10 @@
           %h1 ◆名言の入力(※必須)
         = f.text_area :content, placeholder: "名言を入力してください", class: "post-container__meigen-content--size"
       .post-container__meigen-content
+        = f.label :source do
+          %h1 ◆出典の入力
+        = f.text_field :source, placeholder: "名言の出典を入力してください", class: "post-container__meigen-content--size-a"
+      .post-container__meigen-content
         = f.label :scene do
           %h1 ◆どんなシーン？
         = f.text_area :scene, placeholder: "名言が役立ったシーンを書きましょう", class: "post-container__meigen-content--size"

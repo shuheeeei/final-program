@@ -42,19 +42,21 @@
       padding-top: 10px;
       &__left-content {
         float: left;
-        width: 80px;
-        height: 70px;
-        margin: 0 15px 140px 0;
+        width: 20%;
+        text-align: center;
         img {
+          width: 100%;
           border: 5px solid #8da0b6;
         }
       }
       &__right-content {
+        @include clearfix();
         float: right;
-        width: calc(100% - 107px);
+        width: calc(100% - 117px);
         &__meigen {
-          height: 200px;
-          width: 90%;
+          float: right;
+          min-height: 200px;
+          width: 80%;
           border: 10px solid #8da0b6;
           padding: 0 1vw;
           position: relative;
@@ -121,6 +123,7 @@
       &__right-content {
         float: right;
         width: calc(100% - 97px);
+        margin-right: 8px;
         &__scene {
             height: 100px;
             width: 90%;

@@ -4,6 +4,7 @@
   height: calc(100vh - 130px);
   background-image: url("background2.jpg");
   object-fit: cover;
+  overflow: scroll;
 
   .meigen-edit-container {
     width: 50vw;
@@ -71,8 +72,8 @@
       &__right-content {
         float: right;
         width: calc(100% - 97px);
-        .size {
-          height: 200px;
+        .content-size {
+          height: 180px;
           width: 90%;
           border: 10px solid #8da0b6;
           padding: 0 1vw;
@@ -89,6 +90,28 @@
             border: 15px solid transparent;
             border-right: 20px solid #8da0b6;
           }
+        }
+        .source-size {
+          width: 90%;
+          border: 10px solid #8da0b6;
+          padding: 0 1vw;
+          position: relative;
+          display: inline-block;
+          font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+          font-size: 25px;
+          &:before {
+            content: "";
+            position: absolute;
+            top: 15%;
+            right: calc(100% + 5px);
+            margin-top: -15px;
+            border: 15px solid transparent;
+            border-right: 20px solid #8da0b6;
+          }
+        }
+        h1 {
+          font-size: 20px;
+          text-align: center;
         }
       }
     }

@@ -23,7 +23,9 @@
             = fa_icon "camera", class: "camera-cursor"
             = f.file_field :image, class: "hidden"
         .meigen-edit-container__content__right-content
-          = f.text_area :content, value: "#{@meigen.content}", class: "size"
+          = f.text_area :content, value: "#{@meigen.content}", class: "content-size"
+          %h1 出典
+          = f.text_field :source, value: "#{@meigen.source}", class: "source-size"
 
       .meigen-edit-container__scene-box
         .meigen-edit-container__scene-box__header
@@ -36,7 +38,7 @@
         .meigen-edit-container__scene-box__right-content
           .meigen-edit-container__scene-box__right-content__scene
             = f.text_area :scene, value: "#{@meigen.scene}", class: "size"
-          = f.submit "編集する", class: "edit-submit-btn"
+          = f.submit "更新する", class: "edit-submit-btn"
 
     %ul
       %li

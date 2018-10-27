@@ -51,22 +51,24 @@
       box-shadow: 0 2px 4px #708090;
       &__left {
         float: left;
-        width: 30%;
+        width: 25%;
         &__header {
           font-size: 20px;
           text-align: center;
         }
         &__image {
+          text-align: center;
           img {
             min-width: 100px;
-            max-width: 300px;
-            border: 2px solid #8da0b6;
+            max-width: 180px;
+            max-height: 210px;
           }
         }
       }
       &__right {
         float: right;
-        width: 70%;
+        width: 65%;
+        margin-right: 50px;
         &__header {
           width: 100%;
           font-size: 20px;
@@ -74,10 +76,10 @@
         }
         &__meigen {
           float: left;
-          margin-right: 50px;
-          width: 80%;
+          width: calc(100% - 40px);
           padding: 10px 20px;
           position: relative;
+          margin-right: 50px;
           display: inline-block;
           font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
           font-size: 25px;
@@ -165,17 +167,17 @@
 
     &__comment-box {
       @include clearfix();
-      width: calc(80vw - 30%);
+      width: 70%;
       margin: 0 auto 10px;
       padding-bottom: 10px;
       padding-left: 30%;
       box-shadow: 0 2px 4px #708090;
       overflow: scroll;
       &__comment {
-        textarea{
-          width: calc(70% - 30px);
+        textarea {
+          width: 87%;
           margin-top: 10px;
-          margin-right: 100px;
+          margin-right: 150px;
           padding: 10px;
           border: 1px solid #d8d8d8;
           border-radius: 5px;
