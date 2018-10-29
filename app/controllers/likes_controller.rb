@@ -12,7 +12,6 @@ class LikesController < ApplicationController
 
   def show
     @likes = Like.where(user_id: current_user.id)
-    # @meigens = like.meigens.order("created_at DESC")
   end
 
 end

@@ -36,7 +36,7 @@ class MeigensController < ApplicationController
 
   def destroy
     meigen = Meigen.find(params[:id])
-    meigen.destroy
+    meigen.destroy if meigen.id = current_user.id
     redirect_to meigens_path
   end
 
