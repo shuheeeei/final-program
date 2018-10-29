@@ -10,4 +10,9 @@ class LikesController < ApplicationController
     @like.destroy
   end
 
+  def show
+    @likes = Like.where(user_id: current_user.id)
+    # @meigens = like.meigens.order("created_at DESC")
+  end
+
 end

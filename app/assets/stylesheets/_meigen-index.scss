@@ -1,10 +1,37 @@
 .wrapper-for-meigen-index {
   padding-top: 70px;
   width: 100%;
+  height: calc(100vh - 130px);
   background-image: url("notebook_@2X.png");
   background-attachment: fixed;
   background-position: right bottom;
   overflow: scroll;
+
+  .my-page-header {
+    width: 50vh;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 139, 0.5);
+    text-align: center;
+    font-size: 25px;
+    @include clearfix();
+    h1{
+      color: white;
+    }
+    ul {
+      @include clearfix();
+      width: 100%;
+      li {
+        float: left;
+        width: 30%;
+        font-size: 20px;
+        padding: 0 10%;
+        a {
+          @include link-style();
+          color: white;
+        }
+      }
+    }
+  }
 
   .meigen-container {
     width: 40vw;
