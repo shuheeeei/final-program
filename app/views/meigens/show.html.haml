@@ -37,8 +37,11 @@
     .meigen-show-container__scene-content
       .meigen-show-container__scene-content__left
         .meigen-show-container__scene-content__left__header
-        .meigen-show-container__scene-box__left__face
-          / %i.far.fa-flushed
+          %h1 タグ
+        .meigen-show-container__scene-content__left__face
+          - @meigen.tag_list.each do |tag|
+            .meigen-show-container__scene-content__left__face__tag
+              = tag
 
       .meigen-show-container__scene-content__right
         .meigen-show-container__scene-content__right__header

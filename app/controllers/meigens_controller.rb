@@ -43,7 +43,7 @@ class MeigensController < ApplicationController
   private
 
   def meigen_params
-    params.require(:meigen).permit(:content, :scene, :image, :source).merge(user_id: current_user.id)
+    params.require(:meigen).permit(:content, :scene, :image, :source, :tag_list).merge(user_id: current_user.id)
   end
 
 end

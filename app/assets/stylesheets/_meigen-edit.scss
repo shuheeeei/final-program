@@ -156,6 +156,17 @@
             font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
             font-size: 20px;
           }
+          .tag-size {
+            width: 90%;
+            border: 5px solid #8da0b6;
+            padding: 0 1vw;
+            display: inline-block;
+
+          }
+          li {
+            float: left;
+            margin-right: 5px;
+          }
         }
         .edit-submit-btn {
           background-color: #4169e1;

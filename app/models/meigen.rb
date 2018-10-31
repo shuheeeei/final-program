@@ -6,6 +6,8 @@ class Meigen < ApplicationRecord
   mount_uploader :image, ImageUploader
   validates :content, presence: true
 
+  acts_as_taggable
+
   def like_user(id)
     likes.find_by(user_id: id)
   end
