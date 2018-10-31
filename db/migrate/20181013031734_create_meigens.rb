@@ -1,4 +1,4 @@
-class CreateMeigens < ActiveRecord::Migration[5.1]
+class CreateMeigens < ActiveRecord::Migration[4.2][5.1]
   def change
     create_table :meigens do |t|
       t.text :content, null: false
