@@ -26,6 +26,9 @@
         .meigen-container__content__left-content
           = image_tag(meigen.image, width: '80')
           = meigen.source
+          - meigen.tag_list.each do |tag|
+            .meigen-container__content__left-content__tag
+              = tag
         .meigen-container__content__right-content
           .meigen-container__content__right-content__meigen
             = simple_format(meigen.content)
@@ -45,7 +48,7 @@
 
       .meigen-container__scene-container
         .meigen-container__scene-container__left-content
-          / %i.far.fa-flushed
+
         .meigen-container__scene-container__right-content
           .meigen-container__scene-container__right-content__scene
             = meigen.scene

@@ -117,9 +117,23 @@
         float: left;
         width: 30%;
         &__header {
-          display: none;
+          text-align: center;
+          font-size: 20px;
         }
         &__face {
+          margin: 0 5px;
+          &__tag {
+            display: inline-block;
+            background-color: #4169e1;
+            color: white;
+            font-size: 15px;
+            border-radius: 4px;
+            padding: 0 2px;
+            margin-bottom: 4px;
+            border: none;
+            box-shadow: 3px 3px #000080;
+            outline: none;
+          }
         }
       }
       &__right {

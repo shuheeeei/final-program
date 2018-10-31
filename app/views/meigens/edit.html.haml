@@ -38,6 +38,10 @@
         .meigen-edit-container__scene-box__right-content
           .meigen-edit-container__scene-box__right-content__scene
             = f.text_area :scene, value: "#{@meigen.scene}", class: "size"
+            = f.label :tag_list do
+              タグをつけ直す(カンマ区切り)
+            = text_field_tag 'meigen[tag_list]', @meigen.tag_list.join(","), class: "tag-size"
+
           = f.submit "更新する", class: "edit-submit-btn"
 
     %ul

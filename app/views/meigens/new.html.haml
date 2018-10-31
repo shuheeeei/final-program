@@ -23,6 +23,10 @@
           ◆名言の出典がわかる画像を投稿：
           = fa_icon "camera", class: "camera-cursor"
           = f.file_field :image, class: "hidden"
+      .post-container__meigen-content
+        = f.label :tag_list, class: "" do
+          %h1 ◆カンマ区切りでタグを入力
+        = text_field_tag 'meigen[tag_list]', @meigen.tag_list.join(","), class: "post-container__meigen-content--size-a", placeholder: "名言にタグ付けしてください"
       = f.submit "投稿する", class: "post-container__submit-btn"
     %ul
       %li

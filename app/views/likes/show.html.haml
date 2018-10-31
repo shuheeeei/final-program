@@ -25,7 +25,11 @@
       .meigen-container__content
         .meigen-container__content__left-content
           = image_tag(like.meigen.image, width: '80')
-          = like.meigen.source
+          .meigen-container__content__left-content__source
+            = like.meigen.source
+          - like.meigen.tag_list.each do |tag|
+            .meigen-container__content__left-content__tag
+              = tag
         .meigen-container__content__right-content
           .meigen-container__content__right-content__meigen
             = simple_format(like.meigen.content)
