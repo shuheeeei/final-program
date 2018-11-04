@@ -63,3 +63,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'pry-rails'
 gem 'acts-as-taggable-on', '~> 4.0'
+
+group :production do
+  gem 'unicorn'
+end
