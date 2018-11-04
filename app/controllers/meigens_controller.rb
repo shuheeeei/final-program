@@ -13,6 +13,8 @@ class MeigensController < ApplicationController
     @meigen = Meigen.new(meigen_params)
 
     if @meigen.save
+      increase_point = current_user.point + 10
+      current_user.update(point: increase_point)
       redirect_to("/meigens")
     else
       render("meigens/new")
@@ -32,10 +34,39 @@ class MeigensController < ApplicationController
   def show
     @meigen = Meigen.find(params[:id])
     @comment = Comment.new
+
+    @point = Point.new
+    current_status = Point.where("meigen_id = ? and user_id = ?", @meigen.id, current_user.id)
+    current_status.present? ? @current_point = current_status[0].value : @current_point = 10
+
+
+    if current_user.point == 0
+      pull_down_menu_max = 0
+    elsif @current_point >= current_user.point
+      pull_down_menu_max = @current_point + current_user.point
+    else
+      pull_down_menu_max = current_user.point
+    end
+
+    @num = []
+    10.step(pull_down_menu_max, 10) do |i|
+      @num << i
+    end
+
+    points = Point.includes(:user).where("meigen_id = ?", @meigen.id)
+    max = points.maximum(:value)
+    @max_point = points.where("value = ?", max)
+
   end
 
   def destroy
     meigen = Meigen.find(params[:id])
+
+    meigen.points.each do |point|
+      repair = point.user.point + point.value
+      point.user.update(point: repair)
+    end
+
     meigen.destroy if meigen.id = current_user.id
     redirect_to meigens_path
   end
