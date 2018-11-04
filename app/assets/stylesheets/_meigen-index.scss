@@ -30,8 +30,18 @@
           color: white;
         }
       }
+      #point-column {
+        width: 100%;
+        padding: 0;
+      }
+    }
+    &__remain-point {
+      color: white;
+      font-size: 15px;
     }
   }
+
+
 
   .meigen-container {
     width: 40vw;

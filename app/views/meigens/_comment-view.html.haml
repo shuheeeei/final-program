@@ -1,9 +1,9 @@
-.meigen-show-container__comment-box__index__items{class: "comment-id-#{comment.id}"}
-  .meigen-show-container__comment-box__index__items__left
+.meigen-show-container__form-box__comment-index__items{class: "comment-id-#{comment.id}"}
+  .meigen-show-container__form-box__comment-index__items__left
     %p
       = comment.user.name
       ：
-  .meigen-show-container__comment-box__index__items__center
+  .meigen-show-container__form-box__comment-index__items__center
     %p
       = simple_format(comment.content)
   - if comment.user_id == current_user.id

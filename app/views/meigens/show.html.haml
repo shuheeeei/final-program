@@ -19,6 +19,17 @@
             %li
               = link_to "削除", meigen_path(@meigen.id), method: :delete
 
+    - if @max_point.present?
+      .meigen-show-container__user-possession
+        %h1
+          この名言は
+          %span
+            = @max_point[0].user.name
+          さんのものです!
+          %span
+            = @max_point[0].value
+          ポイント振っています
+
     .meigen-show-container__content
       .meigen-show-container__content__left
         .meigen-show-container__content__left__header
@@ -60,13 +71,21 @@
           %li{class: "like-heart-#{@meigen.id}"}
             = render partial: "like-view", locals: { meigen: @meigen }
 
-    .meigen-show-container__comment-box
-      .meigen-show-container__comment-box__comment
+    .meigen-show-container__form-box
+      .meigen-show-container__form-box__point
+        - unless @meigen.user_id == current_user.id
+          %h1 ポイントを振る
+          = form_for @point, url: points_path do |f|
+            = f.select :value, @num, selected: @current_point
+            = f.hidden_field :meigen_id, value: @meigen.id
+            = f.submit "Push", class: "point-submit-btn"
+      .meigen-show-container__form-box__comment
         = form_for @comment, url: meigen_comments_path(@meigen), remote: true do |f|
           = f.text_area :content, placeholder: "コメントする", id: "comment-area"
           = f.submit "コメントする", class: "comment-submit-btn"
-      %h2 ＜コメント一覧＞
-      .meigen-show-container__comment-box__index
+
+      .meigen-show-container__form-box__comment-index
+        %h2 ＜コメント一覧＞
         = render partial: "comment-view", collection: @meigen.comments, as: "comment"
 
 

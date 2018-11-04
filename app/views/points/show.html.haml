@@ -5,50 +5,51 @@
       さんのマイページ
     %ul
       %li
-        ●投稿一覧
+        = link_to "/users/#{current_user.id}" do
+          ●投稿一覧
       %li
         = link_to "/users/#{current_user.id}/likes" do
           ●いいね一覧
       %li#point-column
-        = link_to "/points/#{current_user.id}" do
-          ●ポイント振った投稿一覧
+        ●ポイント振った投稿一覧
 
     .my-page-header__remain-point
       %p
         ポイント残高：
         = current_user.point
 
-  - @meigens.each do |meigen|
+  - @points.each do |point|
     .meigen-container
       .meigen-container__header
         .meigen-container__header--information
           %ul
             %li
               投稿者：
-              = meigen.user.name
+              = point.user.name
             %li
-              = meigen.created_at
+              = point.meigen.created_at
         .meigen-container__header--access-detail
-          = link_to image_tag( 'arrow.png', { border: '0', alt: '新規登録' } ), "/meigens/#{meigen.id}"
+          = link_to image_tag( 'arrow.png', { border: '0', alt: '新規登録' } ), "/meigens/#{point.meigen.id}"
       .meigen-container__content
         .meigen-container__content__left-content
-          = image_tag(meigen.image, width: '80')
-          = meigen.source
-          - meigen.tag_list.each do |tag|
+          = image_tag(point.meigen.image, width: '80')
+          .meigen-container__content__left-content__source
+            = point.meigen.source
+          - point.meigen.tag_list.each do |tag|
             .meigen-container__content__left-content__tag
               = tag
         .meigen-container__content__right-content
           .meigen-container__content__right-content__meigen
-            = simple_format(meigen.content)
+            = simple_format(point.meigen.content)
 
       .meigen-container__sns-function-bar
         .meigen-container__sns-function-bar__box
           %ul
             %li
               %i.far.fa-comment
-                = meigen.comments_count
-            %li{class: "like-heart-#{meigen.id}"}
-              = render partial: "meigens/like-view", locals: { meigen: meigen }
+                = point.meigen.comments_count
+            %li{class: "like-heart-#{point.meigen.id}"}
+              = render partial: "meigens/like-view", locals: { meigen: point.meigen }
 
 
       .meigen-container__scene-displayer
@@ -56,7 +57,7 @@
 
       .meigen-container__scene-container
         .meigen-container__scene-container__left-content
-
+          / %i.far.fa-flushed
         .meigen-container__scene-container__right-content
           .meigen-container__scene-container__right-content__scene
-            = meigen.scene
+            = point.meigen.scene

@@ -9,6 +9,14 @@
           ●投稿一覧
       %li
         ●いいね一覧
+      %li#point-column
+        = link_to "/points/#{current_user.id}" do
+          ●ポイント振った投稿一覧
+
+    .my-page-header__remain-point
+      %p
+        ポイント残高：
+        = current_user.point
 
   - @likes.each do |like|
     .meigen-container
