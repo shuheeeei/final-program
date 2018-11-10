@@ -18,8 +18,7 @@
 
 .byebug_history
 
-uploads/
-images/
+uploads/images/
 
 /public/uploads
 config/secrets.yml
