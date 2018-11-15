@@ -15,7 +15,7 @@
     .header
       .header-nav
         .header-nav__title
-          = link_to "[WIP]なまえ", "/"
+          = link_to "超名言", "/"
         - if user_signed_in?
           .header-nav__menu
             %ul
@@ -57,7 +57,7 @@
           .header-nav__menu
             %ul
               %li.header-nav__menu--content
-                =link_to "[アプリ名]とは", "#about"
+                =link_to "超名言って？", "#about"
               %li.header-nav__menu--content
                 =link_to "ログイン", new_user_session_path
               %li.header-nav__menu--content
@@ -71,7 +71,8 @@
     %footer
       .footer__list
         %ul
-          %li
-            =link_to "投稿一覧へ", meigens_path
+          = if user_signed_in?
+            %li
+              =link_to "投稿一覧へ", meigens_path
           %li
             =link_to "使い方", "/"
