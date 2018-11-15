@@ -9,6 +9,23 @@ class Meigen < ApplicationRecord
 
   acts_as_taggable
 
+
+  scope :contents_sources, -> keyword do
+    if keyword.present?
+      Meigen.where("content LIKE(?)", "%" + keyword + "%").or(Meigen.where("source LIKE(?)", "%" + keyword + "%"))
+    end
+  end
+
+  scope :tags, -> keyword do
+    if keyword.present?
+      Meigen.where("name LIKE(?)", "%" + keyword + "%")
+    end
+  end
+
+  def short_description
+    description[0, 20] + '...'
+  end
+
   def like_user(id)
     likes.find_by(user_id: id)
   end

@@ -71,6 +71,16 @@ class MeigensController < ApplicationController
     redirect_to meigens_path
   end
 
+  def search
+    @meigens = Meigen.contents_sources(params[:keyword])
+    @tag_meigens = Meigen.joins(:tags).select("meigens.*, tags.name").tags(params[:keyword])
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
+
   private
 
   def meigen_params
