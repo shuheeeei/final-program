@@ -2,7 +2,7 @@ class Meigen < ApplicationRecord
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :points
+  has_many :points, dependent: :destroy
 
   mount_uploader :image, ImageUploader
   validates :content, presence: true, uniqueness: true

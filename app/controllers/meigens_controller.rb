@@ -67,7 +67,7 @@ class MeigensController < ApplicationController
       point.user.update(point: repair)
     end
 
-    meigen.destroy if meigen.id = current_user.id
+    meigen.destroy if meigen.user_id == current_user.id
     redirect_to meigens_path
   end
 

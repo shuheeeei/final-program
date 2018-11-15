@@ -24,6 +24,7 @@ body {
     color: #FFFF00;
     line-height: 60px;
     float: right;
+    position: relative;
     li {
       list-style: none;
       float: left;
@@ -52,6 +53,89 @@ body {
       }
     }
   }
+
+  .meigen-search-modal {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    &__overlay {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(180, 180, 180, 0.6);
+      z-index: 10;
+    }
+    &__content {
+      padding: 10px;
+      position: absolute;
+      top: calc(50% - 200px);
+      left: calc(50% - 37.5vw);
+      z-index: 20;
+      height: 400px;
+      width: 75vw;
+      background: linear-gradient(90deg, #8e9eab, #eef2f3) fixed;
+      transform: 2s;
+      color: #5d627b;
+      border-radius: 10px;
+      box-shadow: 0 3px 5px #708090;
+      @include clearfix();
+      &__header {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+        .search-field {
+          width: 40vw;
+        }
+        .dummy-field {
+          display: none;
+        }
+        h1 {
+          font-size: 20px;
+          font-weight: bold;
+        }
+        .search-close {
+          position: absolute;
+          top: 0;
+          right: 5px;
+          a {
+            @include link-style();
+            color: black;
+          }
+        }
+      }
+      &__result {
+        float: left;
+        box-sizing: border-box;
+        text-align: center;
+        width: 25vw;
+        a {
+          @include link-style();
+          color: black;
+        }
+        h2 {
+          box-shadow: 0 3px 5px #708090;
+          margin-bottom: 10px;
+          font-weight: bold;
+        }
+        .search-result1, .search-result2, .search-result3 {
+          li:after {
+              content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, #eef2f3, #8e9eab);
+          }
+        }
+      }
+      #search-result-center {
+        border-right: 1px solid black;
+        border-left: 1px solid black;
+      }
+    }
+  }
+
   .header-notice {
     color: white;
     font-weight: bold;
