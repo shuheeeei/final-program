@@ -22,11 +22,33 @@
               %li.header-nav__menu--content
                 =link_to "マイページ", "/users/#{current_user.id}"
               %li.header-nav__menu--content
-                =link_to "検索", "/"  #編集中
+                =link_to "検索", "#modal-open"
               %li.header-nav__menu--content.header-nav__menu--content--small
                 =link_to "ログアウト", destroy_user_session_path, method: :delete
               %li.header-nav__menu--content.header-nav__menu--content--post-btn
                 =link_to "投稿する", new_meigen_path
+
+          .meigen-search-modal
+            .meigen-search-modal__overlay
+            .meigen-search-modal__content
+              .meigen-search-modal__content__header
+                %h1 名言を探す
+                = form_tag search_meigens_path, method: :get do
+                  = text_field_tag :keyword, "", placeholder: "キーワードを入力してください", class: "search-field"
+                  = text_field_tag :dummy, "", class: "dummy-field"
+                .search-close
+                  = link_to "#modal-close" do
+                    %i.fas.fa-times
+              .meigen-search-modal__content__result
+                %h2 名言
+                %ul.search-result1
+              .meigen-search-modal__content__result#search-result-center
+                %h2 名言もと
+                %ul.search-result2
+              .meigen-search-modal__content__result
+                %h2 タグ
+                %ul.search-result3
+
           .header-notice
             = notice
           .header-alert

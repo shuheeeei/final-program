@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'users/:id/likes' => 'likes#show'
 
   resources :meigens do
+    collection do
+      get 'search'
+    end
     resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
   end
