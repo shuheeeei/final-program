@@ -71,7 +71,7 @@
     %footer
       .footer__list
         %ul
-          = if user_signed_in?
+          - if user_signed_in?
             %li
               =link_to "投稿一覧へ", meigens_path
           %li

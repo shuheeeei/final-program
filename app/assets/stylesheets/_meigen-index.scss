@@ -130,6 +130,7 @@
 
     &__sns-function-bar {
       width: 100%;
+      clear: both;
       @include clearfix();
       &__box {
         float: right;
