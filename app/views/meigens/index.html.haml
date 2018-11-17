@@ -1,4 +1,5 @@
 .wrapper-for-meigen-index
+  //background-image: https://www.toptal.com/designers/subtlepatterns/notebook/
   - @meigens.each do |meigen|
     .meigen-container
       .meigen-container__header
@@ -20,7 +21,7 @@
               = tag
         .meigen-container__content__right-content
           .meigen-container__content__right-content__meigen
-            = simple_format(meigen.content)
+            = simple_format(meigen.content.truncate(72))
 
       .meigen-container__sns-function-bar
         .meigen-container__sns-function-bar__box
