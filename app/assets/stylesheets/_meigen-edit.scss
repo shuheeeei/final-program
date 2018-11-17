@@ -2,7 +2,7 @@
   padding-top: 70px;
   width: 100%;
   height: calc(100vh - 130px);
-  background-image: url("/image/background2.jpg");
+  background-image: url("/images/background2.jpg");
   object-fit: cover;
   overflow: scroll;
 
@@ -36,12 +36,10 @@
         &--left {
           float: left;
           width: 85px;
-          text-align: center;
         }
         &--right {
           float: right;
           width: calc(100% - 97px);
-          text-align: center;
         }
       }
       &__left-content {
@@ -75,7 +73,7 @@
         .content-size {
           height: 180px;
           width: 90%;
-          border: 10px solid #8da0b6;
+          border: 5px solid #8da0b6;
           padding: 0 1vw;
           position: relative;
           display: inline-block;
@@ -87,13 +85,13 @@
             top: 15%;
             right: calc(100% + 5px);
             margin-top: -15px;
-            border: 15px solid transparent;
+            border: 10px solid transparent;
             border-right: 20px solid #8da0b6;
           }
         }
         .source-size {
           width: 90%;
-          border: 10px solid #8da0b6;
+          border: 5px solid #8da0b6;
           padding: 0 1vw;
           position: relative;
           display: inline-block;
@@ -111,7 +109,6 @@
         }
         h1 {
           font-size: 20px;
-          text-align: center;
         }
       }
     }
@@ -128,12 +125,10 @@
         &--left {
           float: left;
           width: 85px;
-          text-align: center;
         }
         &--right {
           float: right;
           width: calc(100% - 97px);
-          text-align: center;
         }
       }
       &__left-content {
@@ -149,7 +144,7 @@
           .size {
             height: 100px;
             width: 90%;
-            border: 10px solid #8da0b6;
+            border: 5px solid #8da0b6;
             padding: 0 1vw;
             position: relative;
             display: inline-block;

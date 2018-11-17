@@ -3,6 +3,7 @@
   width: 100%;
   height: calc(100vh - 130px);
   background-image: url("/images/notebook_@2X.png");
+  // https://www.toptal.com/designers/subtlepatterns/notebook/
   background-attachment: fixed;
   background-position: right bottom;
   overflow: scroll;
@@ -10,7 +11,7 @@
   .my-page-header {
     width: 50vh;
     margin: 0 auto;
-    background-color: rgba(0, 0, 139, 0.5);
+    background: linear-gradient(90deg, #4b79a1, #283e51) fixed;
     text-align: center;
     font-size: 25px;
     @include clearfix();
@@ -22,9 +23,9 @@
       width: 100%;
       li {
         float: left;
-        width: 30%;
+        width: 40%;
         font-size: 20px;
-        padding: 0 10%;
+        padding: 0 5%;
         a {
           @include link-style();
           color: white;

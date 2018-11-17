@@ -49,10 +49,14 @@
       .meigen-show-container__scene-content__left
         .meigen-show-container__scene-content__left__header
           %h1 タグ
-        .meigen-show-container__scene-content__left__face
-          - @meigen.tag_list.each do |tag|
-            .meigen-show-container__scene-content__left__face__tag
-              = tag
+        .meigen-show-container__scene-content__left__tag
+          - if @meigen.tag_list.length != 0
+            - @meigen.tag_list.each do |tag|
+              .meigen-show-container__scene-content__left__tag__name
+                = tag
+          - else
+            .meigen-show-container__scene-content__left__tag__nothing
+              %p タグ付けされていません!
 
       .meigen-show-container__scene-content__right
         .meigen-show-container__scene-content__right__header
@@ -86,7 +90,10 @@
 
       .meigen-show-container__form-box__comment-index
         %h2 ＜コメント一覧＞
-        = render partial: "comment-view", collection: @meigen.comments, as: "comment"
+        - if @meigen.comments.length != 0
+          = render partial: "comment-view", collection: @meigen.comments, as: "comment"
+        - else
+          %p まだコメントはありません!
 
 
     %ul
