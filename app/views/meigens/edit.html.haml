@@ -22,6 +22,9 @@
             %h1 画像再設定:
             = fa_icon "camera", class: "camera-cursor"
             = f.file_field :image, class: "hidden"
+          ◆プレビュー
+          .meigen-edit-container__content__left-content__preview
+
         .meigen-edit-container__content__right-content
           = f.text_area :content, value: "#{@meigen.content}", class: "content-size"
           %h1 ◆出典
@@ -29,10 +32,8 @@
 
       .meigen-edit-container__scene-box
         .meigen-edit-container__scene-box__header
-          .meigen-edit-container__scene-box__header--left
           .meigen-edit-container__scene-box__header--right
             %h1 ◆役立ったシーン
-        .meigen-edit-container__scene-box__left-content
         .meigen-edit-container__scene-box__right-content
           .meigen-edit-container__scene-box__right-content__scene
             = f.text_area :scene, value: "#{@meigen.scene}", class: "size"
