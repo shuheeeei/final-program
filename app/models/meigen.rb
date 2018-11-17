@@ -6,6 +6,7 @@ class Meigen < ApplicationRecord
 
   mount_uploader :image, ImageUploader
   validates :content, presence: true, uniqueness: true
+  validates :source, uniqueness: true
 
   acts_as_taggable
 
@@ -22,9 +23,6 @@ class Meigen < ApplicationRecord
     end
   end
 
-  def short_description
-    description[0, 20] + '...'
-  end
 
   def like_user(id)
     likes.find_by(user_id: id)
