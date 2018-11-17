@@ -93,7 +93,7 @@
         - if @meigen.comments.length != 0
           = render partial: "comment-view", collection: @meigen.comments, as: "comment"
         - else
-          %p まだコメントはありません!
+          %p.no-comment まだコメントはありません!
 
 
     %ul

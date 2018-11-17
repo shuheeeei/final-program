@@ -39,14 +39,13 @@
         }
         &--right {
           float: right;
-          width: calc(100% - 97px);
+          width: calc(100% - 150px);
         }
       }
       &__left-content {
         float: left;
-        width: 85px;
-        height: 70px;
-        margin-bottom:140px;
+        max-width: 150px;
+        margin-left: 15px;
         position: relative;
         img {
           height: 80px;
@@ -69,7 +68,7 @@
       }
       &__right-content {
         float: right;
-        width: calc(100% - 97px);
+        width: calc(100% - 150px);
         .content-size {
           height: 180px;
           width: 90%;
@@ -78,7 +77,7 @@
           position: relative;
           display: inline-block;
           font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
-          font-size: 25px;
+          font-size: 20px;
           &:before {
             content: "";
             position: absolute;
@@ -122,24 +121,14 @@
         @include clearfix();
         width: 100%;
         font-size: 20px;
-        &--left {
-          float: left;
-          width: 85px;
-        }
         &--right {
           float: right;
-          width: calc(100% - 97px);
+          width: calc(100% - 150px);
         }
-      }
-      &__left-content {
-        float: left;
-        line-height: 50px;
-        font-size: 30px;
-        width: 70px;
       }
       &__right-content {
         float: right;
-        width: calc(100% - 97px);
+        width: calc(100% - 150px);
         &__scene {
           .size {
             height: 100px;
