@@ -6,7 +6,7 @@ class Meigen < ApplicationRecord
 
   mount_uploader :image, ImageUploader
   validates :content, presence: true, uniqueness: true
-  validates :source, uniqueness: true
+  validates :source, presence: true
 
   acts_as_taggable
 
