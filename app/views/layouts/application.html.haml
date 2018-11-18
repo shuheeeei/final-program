@@ -8,7 +8,7 @@
     = javascript_include_tag 'application'
 
   %body
-  -if controller.controller_name == "sessions" || controller.controller_name == "registrations" || controller.controller_name == "passwords"
+  - if controller.controller_name == "sessions" || controller.controller_name == "registrations" || controller.controller_name == "passwords"
     = yield
 
   -else
@@ -57,22 +57,58 @@
           .header-nav__menu
             %ul
               %li.header-nav__menu--content
-                =link_to "超名言って？", "#about"
+                =link_to "超名言って？", "#", id:"js__sideMenuBtn"
               %li.header-nav__menu--content
-                =link_to "ログイン", new_user_session_path
+                = link_to "ログイン", new_user_session_path
               %li.header-nav__menu--content
-                =link_to "新規登録", new_user_registration_path
+                = link_to "新規登録", new_user_registration_path
+
+          .side-menu
+            .side-menu__header
+              %h1 「超名言」って？
+              %p 感動、共感、好き・・・そんな名言を投稿できる場所です
+              %p 気に入った投稿を集めたり、自分のものにできます
+            .side-menu__explanation
+            %ul.exp-list
+              %li.exp-list-item1
+                １．何ができるの？
+                %span +
+              .exp-list-content1
+                %ul
+                  %li
+                    %p 自分の好きな名言を投稿できます
+                  %li
+                    %p 内容とその出典(人・本)は必ず入力してください
+                  %li
+                    %p 内容、出典、タグで投稿の検索できます
+                  %li
+                    %p マイページで自分の投稿と"いいね"した投稿が見られます
+              %li.exp-list-item2
+                ２．名言を自分のものにする、って？
+                %span +
+              .exp-list-content2
+                %ul
+                  %li
+                    %p 「この名言には感動した！」という投稿にポイントを投資することができます。
+                  %li
+                    %p ポイントを最も振った人がその名言を自分のものにすることができ、ユーザー名が載ります！
+                  %li
+                    %p アカウントの新規登録時点で100pt、投稿すると10pt獲得できます。残りポイント数はマイページで確認できます。
+
+
+
           .header-notice
             = notice
           .header-alert
             = alert
     = yield
 
-    %footer
-      .footer__list
-        %ul
-          - if user_signed_in?
+    - if controller.controller_name != "home"
+      %footer
+        .footer__list
+          %ul
+            - if user_signed_in?
+              %li
+                =link_to "投稿一覧へ", meigens_path
             %li
-              =link_to "投稿一覧へ", meigens_path
-          %li
-            =link_to "使い方", "/"
+              =link_to "使い方", "/"
