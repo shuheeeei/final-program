@@ -21,8 +21,8 @@
             %ul
               %li.header-nav__menu--content
                 =link_to "マイページ", "/users/#{current_user.id}"
-              %li.header-nav__menu--content
-                =link_to "検索", "#modal-open"
+              %li.header-nav__menu--content#modal-open
+                検索
               %li.header-nav__menu--content.header-nav__menu--content--small
                 =link_to "ログアウト", destroy_user_session_path, method: :delete
               %li.header-nav__menu--content.header-nav__menu--content--post-btn
@@ -37,8 +37,7 @@
                   = text_field_tag :keyword, "", placeholder: "キーワードを入力してください", class: "search-field"
                   = text_field_tag :dummy, "", class: "dummy-field"
                 .search-close
-                  = link_to "#modal-close" do
-                    %i.fas.fa-times
+                  %i.fas.fa-times#modal-close
               .meigen-search-modal__content__result
                 %h2 名言
                 %ul.search-result1

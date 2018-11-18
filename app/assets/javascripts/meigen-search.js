@@ -1,10 +1,9 @@
 $(function(){
-  $('.meigen-search-modal').css("display", "none");
 
-  $('a[href="#modal-open"]').on("click", function(){
+  $('#modal-open').on("click", function(){
     $('.meigen-search-modal').fadeIn();
   });
-  $('a[href="#modal-close"]').on("click", function(){
+  $('#modal-close').on("click", function(){
     $('.meigen-search-modal').fadeOut();
   });
 

@@ -21,6 +21,9 @@
     line-height: 60px;
     float: right;
     position: relative;
+    #modal-open:hover {
+      cursor: pointer;
+    }
     li {
       list-style: none;
       float: left;
@@ -100,6 +103,7 @@
     left: 0;
     height: 100vh;
     width: 100vw;
+    display: none;
     &__overlay {
       position: fixed;
       width: 100vw;
@@ -140,6 +144,9 @@
           position: absolute;
           top: 0;
           right: 5px;
+          #modal-close {
+            cursor: pointer;
+          }
           a {
             @include link-style();
             color: black;
