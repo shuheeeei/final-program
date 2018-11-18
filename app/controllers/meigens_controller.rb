@@ -36,9 +36,8 @@ class MeigensController < ApplicationController
     @comment = Comment.new
 
     @point = Point.new
-    current_status = Point.where("meigen_id = ? and user_id = ?", @meigen.id, current_user.id)
-    current_status.present? ? @current_point = current_status[0].value : @current_point = 10
-
+    @current_status = Point.where("meigen_id = ? and user_id = ?", @meigen.id, current_user.id)
+    @current_status.present? ? @current_point = @current_status[0].value : @current_point = 0
 
     if current_user.point == 0
       pull_down_menu_max = 0
@@ -49,7 +48,7 @@ class MeigensController < ApplicationController
     end
 
     @num = []
-    10.step(pull_down_menu_max, 10) do |i|
+    0.step(pull_down_menu_max, 10) do |i|
       @num << i
     end
 

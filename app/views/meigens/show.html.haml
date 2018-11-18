@@ -19,7 +19,7 @@
             %li
               = link_to "削除", meigen_path(@meigen.id), method: :delete
 
-    - if @max_point.present?
+    - if @max_point != 0 && @max_point == nil
       .meigen-show-container__user-possession
         %h1
           この名言は
@@ -78,7 +78,10 @@
     .meigen-show-container__form-box
       .meigen-show-container__form-box__point
         - unless @meigen.user_id == current_user.id
-          %h1 ポイントを振る
+          - if @current_status.present?
+            %h1 ポイントを振り直す
+          -else
+            %h1 ポイントを振る
           = form_for @point, url: points_path do |f|
             = f.select :value, @num, selected: @current_point
             = f.hidden_field :meigen_id, value: @meigen.id
