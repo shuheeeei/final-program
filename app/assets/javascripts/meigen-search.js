@@ -16,11 +16,11 @@ $(function(){
   function appendMeigenContents(meigen) {
     var html = `<li>
                   <a href="/meigens/${ meigen.id }">
-                    <div calss="meigen-search-modal__content__result__list">
-                      <div calss="meigen-container__header--information">
+                    <div class="meigen-search-modal__content__result__list">
+                      <div class="meigen-container__header--information">
                         投稿者：${ meigen.user_name }
                       </div>
-                      <div calss="meigen-container__content__right-content__meigen">
+                      <div class="meigen-container__content__right-content__meigen">
                         ${ meigen.content }
                       </div>
                     </div>
@@ -33,13 +33,13 @@ $(function(){
     var html = `<li>
                   <a href="/meigens/${ meigen.id }">
                     <div calss="meigen-search-modal__content__result__list">
-                      <div calss="meigen-container__header--information">
+                      <div class="meigen-container__header--information">
                         投稿者：${ meigen.user_name }
                       </div>
-                      <div calss="meigen-container__header--information">
+                      <div class="meigen-container__header--information">
                         ${ meigen.source }
                       </div>
-                      <div calss="meigen-container__content__right-content__meigen">
+                      <div class="meigen-container__content__right-content__meigen">
                         ${ meigen.content }
                       </div>
                     </div>
@@ -49,17 +49,16 @@ $(function(){
   }
 
   function appendMeigenTags(meigen) {
-    console.log(meigen);
     var html = `<li>
                   <a href="/meigens/${ meigen.tag_id }">
                     <div calss="meigen-search-modal__content__result__list">
-                      <div calss="meigen-container__header--information">
+                      <div class="meigen-container__header--information">
                         投稿者：${ meigen.tag_user_name }
                       </div>
-                      <div calss="meigen-container__header--information">
+                      <div class="meigen-container__header--information">
                         ${ meigen.tag }
                       </div>
-                      <div calss="meigen-container__content__right-content__meigen">
+                      <div class="meigen-container__content__right-content__meigen">
                         ${ meigen.tag_content }
                       </div>
                     </div>
