@@ -29,6 +29,16 @@
       float: left;
       padding-right: 30px;
     }
+    .side-menu-position {
+      position: absolute;
+      right: 0;
+      top: 40px;
+      padding: 3px;
+      z-index: 50;
+      a, .fas {
+        color: white;
+      }
+    }
     &--content {
       a {
         @include link-style();
