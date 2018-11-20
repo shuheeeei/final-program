@@ -28,7 +28,7 @@ class MeigensController < ApplicationController
   def update
     meigen = Meigen.find(params[:id])
     meigen.update(meigen_params) if meigen.user_id == current_user.id
-    redirect_to meigens_path
+    redirect_to("/meigens/#{params[:id]}")
   end
 
   def show
