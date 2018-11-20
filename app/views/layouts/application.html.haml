@@ -31,6 +31,10 @@
                 %li.header-nav__menu--content.side-menu-position
                   .fas.fa-angle-double-right
                   = link_to "使い方", "#", class: "js__sideMenuBtn"
+              - else
+                %li.header-nav__menu--content.side-menu-position.list-link
+                  .fas.fa-angle-double-right
+                  = link_to "投稿一覧へ", meigens_path
 
           .side-menu
             .side-menu__header
@@ -138,13 +142,3 @@
 
     = yield
 
-
-    - if controller.controller_name != "home"
-      %footer
-        .footer__list
-          %ul
-            - if user_signed_in?
-              %li
-                =link_to "投稿一覧へ", meigens_path
-            %li
-              =link_to "使い方", "/"

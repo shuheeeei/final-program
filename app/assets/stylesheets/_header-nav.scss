@@ -39,6 +39,16 @@
         color: white;
       }
     }
+    .list-link {
+      position: absolute;
+      right: 0;
+      top: 40px;
+      padding: 3px;
+      z-index: 50;
+      a, .fas {
+        color: black;
+      }
+    }
     &--content {
       a {
         @include link-style();
