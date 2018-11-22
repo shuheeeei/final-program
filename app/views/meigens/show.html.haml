@@ -19,7 +19,7 @@
             %li
               = link_to "削除", meigen_path(@meigen.id), method: :delete
 
-    - if @max_point != 0 && @max_point == nil
+    - if @max_point.present?
       .meigen-show-container__user-possession
         %h1
           この名言は
