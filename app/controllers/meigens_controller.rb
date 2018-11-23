@@ -39,7 +39,7 @@ class MeigensController < ApplicationController
     @current_status = Point.where("meigen_id = ? and user_id = ?", @meigen.id, current_user.id)
     @current_status.present? ? @current_point = @current_status[0].value : @current_point = 0
 
-    if current_user.point == 0
+    if current_user.point == 0 && @current_status.empty?
       pull_down_menu_max = 0
     elsif @current_point >= current_user.point
       pull_down_menu_max = @current_point + current_user.point
