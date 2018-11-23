@@ -41,10 +41,9 @@ class MeigensController < ApplicationController
 
     if current_user.point == 0 && @current_status.empty?
       pull_down_menu_max = 0
-    elsif @current_point >= current_user.point
-      pull_down_menu_max = @current_point + current_user.point
     else
-      pull_down_menu_max = current_user.point
+      pull_down_menu_max = @current_point + current_user.point
+
     end
 
     @num = []
