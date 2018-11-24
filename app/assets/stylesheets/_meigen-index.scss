@@ -142,6 +142,9 @@
             a {
               @include link-style();
               padding-right: 3px;
+              .fa-comment {
+                color: black;
+              }
               .already-like {
                 color: #ff6347;
               }
@@ -164,25 +167,15 @@
 
     &__scene-container {
       @include clearfix();
-      width: 40vw;
-      margin: 0 auto 10px;
       padding-bottom: 10px;
-      &__left-content {
-        float: left;
-        line-height: 50px;
-        font-size: 30px;
-        width: 70px;
-      }
-      &__right-content {
+      margin-left: calc(30% - 10px);
+      &__scene-text {
         float: right;
-        width: calc(100% - 97px);
-        margin-right: 8px;
-        &__scene {
-            height: 100px;
-            width: 90%;
-            border: 10px solid #8da0b6;
-            padding: 0 1vw;
-        }
+        width: 80%;
+        height: 100px;
+        width: 90%;
+        border: 10px solid #8da0b6;
+        padding: 0 1vw;
       }
     }
   }
