@@ -99,4 +99,4 @@ meigensテーブルとtassテーブルの中間テーブル
 
 ### Association
 - belongs_to :meingen
-- belongs_to :tags
+- belongs_to :tag
