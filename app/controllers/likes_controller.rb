@@ -11,7 +11,7 @@ class LikesController < ApplicationController
   end
 
   def show
-    @likes = Like.where(user_id: current_user.id)
+    @likes = Like.where(user_id: current_user.id).order("created_at DESC")
   end
 
 end
