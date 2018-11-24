@@ -25,11 +25,11 @@
           %ul
             %li
               投稿者：
-              = like.user.name
+              = like.meigen.user.name
             %li
               = like.meigen.created_at
         .meigen-container__header--access-detail
-          = link_to image_tag( 'arrow.png', { border: '0', alt: '新規登録' } ), "/meigens/#{like.meigen.id}"
+          = link_to "詳細へ", "/meigens/#{like.meigen.id}"
       .meigen-container__content
         .meigen-container__content__left-content
           = image_tag(like.meigen.image, width: '80')
