@@ -48,7 +48,7 @@ meigensテーブルとtassテーブルの中間テーブル
 ### Association
 - belongs_to :user
 - has_many :likes, dependent: :destroy
-- has_many :commments, dependent: :destroy
+- has_many :comments, dependent: :destroy
 - has_many :meigen_tags
 - has_many :tags, through: :meigen_tags
 
