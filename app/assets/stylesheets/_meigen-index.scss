@@ -68,9 +68,9 @@
         width: 10%;
         height: 30px;
         text-align: center;
-        img {
-          width: 20px;
-          transform: rotate( 90deg );
+        a {
+          @include link-style();
+          color: black;
         }
       }
     }
