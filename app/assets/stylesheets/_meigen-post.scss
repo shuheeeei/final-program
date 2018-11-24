@@ -16,6 +16,7 @@
   border: 15px solid #778899;
   position: relative;
   top: 10vh;
+  overflow: scroll;
   &__header {
     h1 {
       font-weight: bold;

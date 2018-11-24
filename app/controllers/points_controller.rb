@@ -14,7 +14,9 @@ class PointsController < ApplicationController
       current_user.update(point: current_point)
       point.update(create_params)
     else # ポイントを振っていない場合
+      current_point = current_user.point - create_params[:value].to_i
       Point.create(create_params)
+      current_user.update(point: current_point)
     end
     redirect_to meigen_path(meigen.id)
   end

@@ -45,7 +45,7 @@
 
 
   .meigen-container {
-    width: 40vw;
+    width: 60vw;
     margin: 0 auto;
     padding: 0 10px;
     background-color: rgba(255, 255, 255, 0.3);
@@ -104,7 +104,7 @@
       &__right-content {
         @include clearfix();
         float: right;
-        width: calc(100% - 117px);
+        width: 80%;
         &__meigen {
           float: right;
           min-height: 200px;

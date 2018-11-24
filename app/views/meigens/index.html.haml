@@ -14,8 +14,9 @@
           = link_to image_tag( 'arrow.png', { border: '0', alt: '新規登録' } ), "/meigens/#{meigen.id}"
       .meigen-container__content
         .meigen-container__content__left-content
-          = image_tag(meigen.image, width: '80')
-          = meigen.source
+          = image_tag(meigen.image)
+          .meigen-container__content__left-content__source
+            = meigen.source
           - meigen.tag_list.each do |tag|
             .meigen-container__content__left-content__tag
               = tag
