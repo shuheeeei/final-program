@@ -1,0 +1,70 @@
+.wrapper
+  .error-message
+    - meigen.errors.full_messages.each do |message|
+      = message
+
+
+  .input-meigen-container
+    .input-meigen-container__header
+      - if controller.action_name == "edit"
+        .input-meigen-container__header__information
+          %ul
+            %li
+              = meigen.user.name
+              さんの投稿
+            %li
+              = meigen.created_at
+      - else
+        %h1 名言の投稿
+
+    = form_for meigen do |f|
+      .input-meigen-container__content
+        .input-meigen-container__content__left
+          %h1 ◆画像の設定:
+          .input-meigen-container__content__left__image
+            = f.label :image do
+              = fa_icon "camera", class: "camera-cursor"
+              = f.file_field :image, class: "hidden"
+            %h2 ＜プレビュー＞
+            .input-meigen-container__content__left__image__preview
+              %p
+                画像が未選択です
+
+        .input-meigen-container__content__right
+          .input-meigen-container__content__right__text
+            = f.label :scene do
+              %h1
+                ◆名言を書く
+                %span
+                  (※必須)
+            = f.text_area :content, placeholder: "名言を入力してください", class: "input-meigen-container__content__right__text--style"
+
+          .input-meigen-container__content__right__source
+            = f.label :source do
+              %h1
+                ◆誰が言ったのか
+                %span
+                  (※必須)
+            = f.text_field :source, placeholder: "名言の出典を入力してください", class: "input-meigen-container__content__right__source--style"
+
+          .input-meigen-container__content__right__scene
+            = f.label :scene do
+              %h1 ◆場面
+            = f.text_area :scene, placeholder: "この名言が役立った・感動した場面を書きましょう", class: "input-meigen-container__content__right__scene--style"
+
+          .input-meigen-container__content__tag
+            = f.label :tag_list do
+              %h1 ◆カンマ区切りでタグを入力
+            = text_field_tag 'meigen[tag_list]', @meigen.tag_list.join(","), placeholder: "名言にタグ付けしましょう", class: "input-meigen-container__content__right__tag--style"
+
+      - if controller.action_name == "edit"
+        = f.submit "更新する", class: "input-meigen-container__submit-btn"
+      - else
+        = f.submit "投稿する", class: "input-meigen-container__submit-btn"
+
+    .input-meigen-container__footer
+      %ul
+        %li
+          = link_to "一覧へ戻る", meigens_path
+        %li
+          = link_to "トップへ戻る", "/"
