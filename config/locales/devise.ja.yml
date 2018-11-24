@@ -53,6 +53,7 @@ ja:
     attributes:
       meigen:
         content: 名言
+        source: 出典
   errors:
     messages:
       already_confirmed: "は既に登録済みです。ログインしてください"

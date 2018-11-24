@@ -11,7 +11,7 @@
             %li
               = meigen.created_at
         .meigen-container__header--access-detail
-          = link_to image_tag( 'arrow.png', { border: '0', alt: '新規登録' } ), "/meigens/#{meigen.id}"
+          = link_to "詳細へ", "/meigens/#{meigen.id}"
       .meigen-container__content
         .meigen-container__content__left-content
           = image_tag(meigen.image)
@@ -28,18 +28,20 @@
         .meigen-container__sns-function-bar__box
           %ul
             %li
-              %i.far.fa-comment
-                = meigen.comments_count
+              = link_to "/meigens/#{meigen.id}" do
+                %i.far.fa-comment
+                  = meigen.comments_count
             %li{class: "like-heart-#{meigen.id}"}
               = render partial: "meigens/like-view", locals: { meigen: meigen }
 
 
-      .meigen-container__scene-displayer
-        %i.fas.fa-chevron-down.accordion-btn
+      .meigen-container__scene-displayer.accordion-btn
+        %i.fas.fa-chevron-down
 
       .meigen-container__scene-container
-        .meigen-container__scene-container__left-content
-
-        .meigen-container__scene-container__right-content
-          .meigen-container__scene-container__right-content__scene
+        .meigen-container__scene-container__scene-text
+          - if meigen.scene.present?
             = meigen.scene
+          - else
+            %p
+              入力されませんでした…

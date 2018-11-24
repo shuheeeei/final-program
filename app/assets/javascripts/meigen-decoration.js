@@ -3,8 +3,7 @@ $(function(){
 
   var value = 0;
   $(".accordion-btn").on("click", function(){
-    var parent = $(this).parent()
-    parent.next().slideToggle();
+    $(this).next().slideToggle();
     value += 180;
     $(this).css("transform", `rotate(${value}deg)`);
   });
