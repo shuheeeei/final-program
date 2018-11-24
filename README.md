@@ -3,9 +3,9 @@
 # 1.概要
 自身が感動・共感した名言を投稿できるオリジナルサービス。
 - 名言の発言者や元になった作品(書籍・映画etc...)の画像投稿
-- 投稿する画像は投稿者自身がアップロードするか他の投稿者がアップロードした画像を選択するかを選べる
+- 投稿する画像は投稿者自身がアップロードする
 - 投稿者が感動した理由や場面を紹介できる
-- 名言には「いいね！」と「タグ付け」ができる
+- 名言には「いいね！」、「タグ付け」、「コメント」ができる
 
 
 # 2.DB設計補足
@@ -42,8 +42,8 @@ meigensテーブルとtagsテーブルの中間テーブル
 |scene|text||
 |image|string||
 |user_id|reference|foreign_key: true|
-|like_count|integer||
-|comment_count|interger||
+|likes_count|integer||
+|comments_count|integer||
 
 ### Association
 - belongs_to :user
