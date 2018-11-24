@@ -16,7 +16,7 @@ emailカラムとpasswordカラム：devise gemを使用する。
 - ## tagsテーブル
 「acts-as-taggable-on」gemを使用して投稿(名言)にタグ付けする。
 - ## meigen_tags テーブル
-meigensテーブルとtassテーブルの中間テーブル
+meigensテーブルとtagsテーブルの中間テーブル
 
 
 # 3.DB設計
@@ -41,7 +41,7 @@ meigensテーブルとtassテーブルの中間テーブル
 |content|text|null: false, index: true|
 |scene|text||
 |image|string||
-|user_id|reference|foregn_key: true|
+|user_id|reference|foreign_key: true|
 |like_count|integer||
 |comment_count|interger||
 
@@ -58,8 +58,8 @@ meigensテーブルとtassテーブルの中間テーブル
 |Column|Type|Options|
 |------|----|-------|
 |content|text|null: false, index: true|
-|user_id|reference|null: false, foregn_key: true|
-|meigen_id|reference|null: false, foregn_key: true|
+|user_id|reference|null: false, foreign_key: true|
+|meigen_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -70,8 +70,8 @@ meigensテーブルとtassテーブルの中間テーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|reference|null: false, foregn_key: true|
-|meigen_id|reference|null: false, foregn_key: true|
+|user_id|reference|null: false, foreign_key: true|
+|meigen_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -83,7 +83,7 @@ meigensテーブルとtassテーブルの中間テーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
-|meigen_id|reference|null: false, foregn_key: true|
+|meigen_id|reference|null: false, foreign_key: true|
 
 ### Association
 - has_many :meigen_tags
@@ -94,9 +94,9 @@ meigensテーブルとtassテーブルの中間テーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|meigen_id|reference|null: false, foregn_key: true|
-|tag_id|reference|null: false, foregn_key: true|
+|meigen_id|reference|null: false, foreign_key: true|
+|tag_id|reference|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :meingen
+- belongs_to :meigen
 - belongs_to :tag
