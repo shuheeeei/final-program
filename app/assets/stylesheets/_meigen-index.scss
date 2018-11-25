@@ -117,6 +117,7 @@
           font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
           font-size: 25px;
           overflow: hidden;
+          word-wrap: break-word;
           &:before {
             content: "";
             position: absolute;

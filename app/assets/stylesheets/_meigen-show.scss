@@ -91,6 +91,7 @@
           display: inline-block;
           font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
           font-size: 25px;
+          word-wrap: break-word;
           &:before, &:after {
             content:'';
             width: 20px;
