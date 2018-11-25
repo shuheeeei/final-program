@@ -11,9 +11,15 @@ class Meigen < ApplicationRecord
   acts_as_taggable
 
 
-  scope :contents_sources, -> keyword do
+  scope :contents, -> keyword do
     if keyword.present?
-      Meigen.where("content LIKE(?)", "%" + keyword + "%").or(Meigen.where("source LIKE(?)", "%" + keyword + "%"))
+      Meigen.where("content LIKE(?)", "%" + keyword + "%")
+    end
+  end
+
+  scope :sources, -> keyword do
+    if keyword.present?
+      Meigen.where("source LIKE(?)", "%" + keyword + "%")
     end
   end
 

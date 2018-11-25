@@ -13,14 +13,16 @@ $(function(){
   var searchObject3 = $(".search-result3");
 
   function appendMeigenContents(meigen) {
+    var descriptionContent = meigen.content.slice(0, 65)
+    descriptionContent.length <= 64 ? descriptionContent = descriptionContent : descriptionContent = descriptionContent + "..."
     var html = `<li>
                   <a href="/meigens/${ meigen.id }">
-                    <div class="meigen-search-modal__content__result__list">
-                      <div class="meigen-container__header--information">
+                    <div class="meigen-search-modal__content__result">
+                      <div class="meigen-search-modal__content__result__user">
                         投稿者：${ meigen.user_name }
                       </div>
-                      <div class="meigen-container__content__right-content__meigen">
-                        ${ meigen.content }
+                      <div class="meigen-search-modal__content__result__content">
+                        ${ descriptionContent }
                       </div>
                     </div>
                   </a>
@@ -29,17 +31,19 @@ $(function(){
   }
 
   function appendMeigenSources(meigen) {
+    var descriptionContent = meigen.source_content.slice(0, 65)
+    descriptionContent.length <= 64 ? descriptionContent = descriptionContent : descriptionContent = descriptionContent + "..."
     var html = `<li>
-                  <a href="/meigens/${ meigen.id }">
-                    <div calss="meigen-search-modal__content__result__list">
-                      <div class="meigen-container__header--information">
-                        投稿者：${ meigen.user_name }
+                  <a href="/meigens/${ meigen.source_id }">
+                    <div calss="meigen-search-modal__content__result">
+                      <div class="meigen-search-modal__content__result__user">
+                        投稿者：${ meigen.source_user_name }
                       </div>
-                      <div class="meigen-container__header--information">
-                        ${ meigen.source }
+                      <div class="meigen-search-modal__content__result__source">
+                        出典：${ meigen.source }
                       </div>
-                      <div class="meigen-container__content__right-content__meigen">
-                        ${ meigen.content }
+                      <div class="meigen-search-modal__content__result__content">
+                        ${ descriptionContent }
                       </div>
                     </div>
                   </a>
@@ -50,14 +54,14 @@ $(function(){
   function appendMeigenTags(meigen) {
     var html = `<li>
                   <a href="/meigens/${ meigen.tag_id }">
-                    <div calss="meigen-search-modal__content__result__list">
-                      <div class="meigen-container__header--information">
+                    <div calss="meigen-search-modal__content__result">
+                      <div class="meigen-search-modal__content__result__user">
                         投稿者：${ meigen.tag_user_name }
                       </div>
-                      <div class="meigen-container__header--information">
+                      <div class="meigen-search-modal__content__result__tag">
                         ${ meigen.tag }
                       </div>
-                      <div class="meigen-container__content__right-content__meigen">
+                      <div class="meigen-search-modal__content__result__content">
                         ${ meigen.tag_content }
                       </div>
                     </div>

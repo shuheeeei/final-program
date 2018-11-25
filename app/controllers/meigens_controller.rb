@@ -70,7 +70,8 @@ class MeigensController < ApplicationController
   end
 
   def search
-    @meigens = Meigen.contents_sources(params[:keyword])
+    @meigens = Meigen.contents(params[:keyword])
+    @source_meigens = Meigen.sources(params[:keyword])
     @tag_meigens = Meigen.joins(:tags).select("meigens.*, tags.name").tags(params[:keyword])
     respond_to do |format|
       format.html
