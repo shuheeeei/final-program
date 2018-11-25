@@ -38,6 +38,7 @@
           = image_tag(@meigen.image)
           %p
             = @meigen.source
+            の名言
       .meigen-show-container__content__right
         .meigen-show-container__content__right__header
           %h1 名言
@@ -62,7 +63,11 @@
         .meigen-show-container__scene-content__right__header
           %h1 場面
         .meigen-show-container__scene-content__right__scene
-          = simple_format(@meigen.scene)
+          - if @meigen.scene.present?
+            = simple_format(@meigen.scene)
+          - else
+            %p
+              入力されませんでした…
 
 
     .meigen-show-container__sns-function-bar
