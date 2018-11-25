@@ -25,10 +25,17 @@
             = f.label :image do
               = fa_icon "camera", class: "camera-cursor"
               = f.file_field :image, class: "hidden"
-            %h2 ＜プレビュー＞
-            .input-meigen-container__content__left__image__preview
-              %p
-                画像が未選択です
+
+            - if controller.action_name == "new"
+              %h2 ＜プレビュー＞
+              .input-meigen-container__content__left__image__preview
+                %p
+                  画像が未選択です
+            - else
+              %h2 ＜プレビュー＞
+              .input-meigen-container__content__left__image__preview
+                %p
+                  = image_tag(meigen.image)
 
         .input-meigen-container__content__right
           .input-meigen-container__content__right__text

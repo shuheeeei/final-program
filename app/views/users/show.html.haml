@@ -40,7 +40,7 @@
               = tag
         .meigen-container__content__right-content
           .meigen-container__content__right-content__meigen
-            = simple_format(meigen.content)
+            = simple_format(meigen.content.truncate(87))
 
       .meigen-container__sns-function-bar
         .meigen-container__sns-function-bar__box
@@ -52,11 +52,13 @@
               = render partial: "meigens/like-view", locals: { meigen: meigen }
 
 
-      .meigen-container__scene-displayer
-        %i.fas.fa-chevron-down.accordion-btn
+      .meigen-container__scene-displayer.accordion-btn
+        %i.fas.fa-chevron-down
 
       .meigen-container__scene-container
-
-        .meigen-container__scene-container__right-content
-          .meigen-container__scene-container__right-content__scene
+        .meigen-container__scene-container__scene-text
+          - if meigen.scene.present?
             = meigen.scene
+          - else
+            %p
+              入力されませんでした…
