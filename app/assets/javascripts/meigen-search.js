@@ -2,6 +2,7 @@ $(function(){
 
   $('#modal-open').on("click", function(){
     $('.meigen-search-modal').fadeIn();
+    $('.search-field').focus();
   });
   $('#modal-close').on("click", function(){
     $('.meigen-search-modal').fadeOut();
@@ -13,16 +14,23 @@ $(function(){
   var searchObject3 = $(".search-result3");
 
   function appendMeigenContents(meigen) {
-    var descriptionContent = meigen.content.slice(0, 65)
-    descriptionContent.length <= 64 ? descriptionContent = descriptionContent : descriptionContent = descriptionContent + "..."
+    if (meigen.content.length <= 64) {
+      var descriptionContent = meigen.content;
+    }
+    else {
+      var descriptionContent = meigen.content.slice(0, 65) + "...";
+    }
     var html = `<li>
                   <a href="/meigens/${ meigen.id }">
                     <div class="meigen-search-modal__content__result">
+                      <div class="meigen-search-modal__content__result__content">
+                        ${ descriptionContent }
+                      </div>
                       <div class="meigen-search-modal__content__result__user">
                         投稿者：${ meigen.user_name }
                       </div>
-                      <div class="meigen-search-modal__content__result__content">
-                        ${ descriptionContent }
+                      <div class="meigen-search-modal__content__result__source">
+                        出典：${ meigen.source }
                       </div>
                     </div>
                   </a>
@@ -31,16 +39,20 @@ $(function(){
   }
 
   function appendMeigenSources(meigen) {
-    var descriptionContent = meigen.source_content.slice(0, 65)
-    descriptionContent.length <= 64 ? descriptionContent = descriptionContent : descriptionContent = descriptionContent + "..."
+    if (meigen.source_content.length <= 64) {
+      var descriptionContent = meigen.source_content;
+    }
+    else {
+      var descriptionContent = meigen.source_content.slice(0, 65) + "...";
+    }
     var html = `<li>
                   <a href="/meigens/${ meigen.source_id }">
                     <div calss="meigen-search-modal__content__result">
-                      <div class="meigen-search-modal__content__result__user">
-                        投稿者：${ meigen.source_user_name }
-                      </div>
                       <div class="meigen-search-modal__content__result__source">
                         出典：${ meigen.source }
+                      </div>
+                      <div class="meigen-search-modal__content__result__user">
+                        投稿者：${ meigen.source_user_name }
                       </div>
                       <div class="meigen-search-modal__content__result__content">
                         ${ descriptionContent }
@@ -52,6 +64,12 @@ $(function(){
   }
 
   function appendMeigenTags(meigen) {
+    if (meigen.tag_content.length <= 64) {
+      var descriptionContent = meigen.tag_content;
+    }
+    else {
+      var descriptionContent = meigen.tag_content.slice(0, 65) + "...";
+    }
     var html = `<li>
                   <a href="/meigens/${ meigen.tag_id }">
                     <div calss="meigen-search-modal__content__result">
@@ -62,7 +80,7 @@ $(function(){
                         ${ meigen.tag }
                       </div>
                       <div class="meigen-search-modal__content__result__content">
-                        ${ meigen.tag_content }
+                        ${ descriptionContent }
                       </div>
                     </div>
                   </a>
@@ -70,14 +88,30 @@ $(function(){
     searchObject3.append(html);
   }
 
-  function appendNoMeigen(meigen) {
+  function appendNoContents(meigen) {
     var html = `<li>
                   <div class="meigen-search-modal__content__result__list">
-                    ${meigen}
+                    ${ meigen }
                   </div>
                 </li>`
     searchObject1.append(html);
+  }
+
+  function appendNoSources(meigen) {
+    var html = `<li>
+                  <div class="meigen-search-modal__content__result__list">
+                    ${ meigen }
+                  </div>
+                </li>`
     searchObject2.append(html);
+  }
+
+  function appendNoTags(meigen) {
+    var html = `<li>
+                  <div class="meigen-search-modal__content__result__list">
+                    ${ meigen }
+                  </div>
+                </li>`
     searchObject3.append(html);
   }
 
@@ -95,24 +129,46 @@ $(function(){
       searchObject3.empty();
       keywords = $('.search-field').val();
 
+
       if (keywords.length !== 0) {
         if (meigens.length !== 0) {
           meigens.forEach(function(meigen){
-            if (meigen.content) {
+            if (meigen.content !== null) {
               appendMeigenContents(meigen);
             }
-            if (meigen.source) {
-              appendMeigenSources(meigen);
+          });
+
+          meigens.some(function(meigen){
+            if (meigen.search_source.length !== 0) {
+              meigen.search_source.forEach(function(eachMeigen){
+                appendMeigenSources(eachMeigen);
+              });
             }
-            if (meigen.tag) {
-              appendMeigenTags(meigen);
+            else {
+              appendNoSources("一致する項目はありません");
+              return true;
+            }
+          });
+          meigens.some(function(meigen){
+            if (meigen.search_tag.length !== 0) {
+              meigen.search_tag.forEach(function(eachMeigen){
+                appendMeigenTags(eachMeigen);
+              });
+            }
+            else {
+              appendNoTags("一致する項目はありません");
+              return true;
             }
           });
         }
         else {
-          appendNoMeigen("一致する項目はありません");
+          appendNoContents("一致する項目はありません");
+          appendNoSources("一致する項目はありません");
+          appendNoTags("一致する項目はありません");
         }
-      }
+
+
+      };
     })
     .fail(function(){
       alert("検索に失敗しました。");
