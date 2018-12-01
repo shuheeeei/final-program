@@ -24,9 +24,9 @@ class Meigen < ApplicationRecord
   end
 
   scope :tags, -> keyword do
-    if keyword.present?
-      Meigen.where("name LIKE(?)", "%" + keyword + "%")
-    end
+
+      Meigen.joins(:tags).select("meigens.*, tags.name").where("name LIKE(?)", "%" + keyword + "%")
+
   end
 
 
