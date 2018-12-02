@@ -19,3 +19,6 @@
         = current_user.point
 
   = render partial: "shared/display_products", locals: { meigens: @meigens }
+
+  .pagination-footer
+    = paginate(@meigens)
