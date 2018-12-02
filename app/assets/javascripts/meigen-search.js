@@ -115,20 +115,19 @@ $(function(){
     searchObject3.append(html);
   }
 
+
+
   $('.search-field').on("keyup", function(){
     var input = $('.search-field').val();
     $.ajax({
       type: 'get',
-      url: '/meigens/search',
+      url: '/meigens/contentSearch',
       data: { keyword: input },
       dataType: 'json'
     })
     .done(function(meigens) {
       searchObject1.empty();
-      searchObject2.empty();
-      searchObject3.empty();
       keywords = $('.search-field').val();
-
 
       if (keywords.length !== 0) {
         if (meigens.length !== 0) {
@@ -137,37 +136,10 @@ $(function(){
               appendMeigenContents(meigen);
             }
           });
-
-          meigens.some(function(meigen){
-            if (meigen.search_source.length !== 0) {
-              meigen.search_source.forEach(function(eachMeigen){
-                appendMeigenSources(eachMeigen);
-              });
-            }
-            else {
-              appendNoSources("一致する項目はありません");
-              return true;
-            }
-          });
-          meigens.some(function(meigen){
-            if (meigen.search_tag.length !== 0) {
-              meigen.search_tag.forEach(function(eachMeigen){
-                appendMeigenTags(eachMeigen);
-              });
-            }
-            else {
-              appendNoTags("一致する項目はありません");
-              return true;
-            }
-          });
         }
         else {
-          appendNoContents("一致する項目はありません");
-          appendNoSources("一致する項目はありません");
-          appendNoTags("一致する項目はありません");
+          appendNoContents("一致する投稿はありません");
         }
-
-
       };
     })
     .fail(function(){
@@ -175,4 +147,64 @@ $(function(){
     })
   });
 
+  $('.search-field').on("keyup", function(){
+    var input = $('.search-field').val();
+    $.ajax({
+      type: 'get',
+      url: '/meigens/sourceSearch',
+      data: { keyword: input },
+      dataType: 'json'
+    })
+    .done(function(meigens) {
+      searchObject2.empty();
+      keywords = $('.search-field').val();
+
+      if (keywords.length !== 0) {
+        if (meigens.length !== 0) {
+          meigens.forEach(function(meigen){
+            if (meigen.content !== null) {
+              appendMeigenSources(meigen);
+            }
+          });
+        }
+        else {
+          appendNoSources("一致する投稿はありません");
+        }
+      };
+    })
+    .fail(function(){
+      alert("検索に失敗しました。");
+    })
+  });
+
+
+  $('.search-field').on("keyup", function(){
+    var input = $('.search-field').val();
+    $.ajax({
+      type: 'get',
+      url: '/meigens/tagSearch',
+      data: { keyword: input },
+      dataType: 'json'
+    })
+    .done(function(meigens) {
+      searchObject3.empty();
+      keywords = $('.search-field').val();
+
+      if (keywords.length !== 0) {
+        if (meigens.length !== 0) {
+          meigens.forEach(function(meigen){
+            if (meigen.content !== null) {
+              appendMeigenTags(meigen);
+            }
+          });
+        }
+        else {
+          appendNoTags("一致する投稿はありません");
+        }
+      };
+    })
+    .fail(function(){
+      alert("検索に失敗しました。");
+    })
+  });
 });

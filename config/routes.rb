@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   resources :meigens do
     collection do
-      get 'search'
+      get 'contentSearch'
+      get 'sourceSearch'
+      get 'tagSearch'
     end
     resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
