@@ -2,4 +2,5 @@
   //background-image: https://www.toptal.com/designers/subtlepatterns/notebook/
   = render partial: "shared/display_products", locals: { meigens: @meigens }
 
-  = paginate(@meigens)
+  .pagination-footer
+    = paginate(@meigens)
