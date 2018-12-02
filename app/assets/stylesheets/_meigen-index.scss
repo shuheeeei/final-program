@@ -50,13 +50,12 @@
 
   .meigen-container {
     width: 60vw;
-    margin: 0 auto;
+    margin: 10px auto 5px;
     padding: 0 10px;
     background-color: rgba(255, 255, 255, 0.3);
 
     &__header {
       @include clearfix();
-      margin-top: 10px;
       padding-top: 5px;
       &--information {
         float: left;
@@ -185,6 +184,17 @@
         border: 10px solid #8da0b6;
         padding: 0 1vw;
       }
+    }
+  }
+
+  .pagination-footer {
+    width: 60vw;
+    margin:  0 auto;
+    @include link-style();
+    text-align: center;
+    a {
+      color: #003f8e;
+      font-weight: bold;
     }
   }
 }
