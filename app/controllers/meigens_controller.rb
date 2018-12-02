@@ -1,6 +1,6 @@
 class MeigensController < ApplicationController
   def index
-    @meigens = Meigen.includes(:user).order("created_at DESC")
+    @meigens = Meigen.includes(:user).page(params[:page]).per(10).order("created_at DESC")
   end
 
   def new
