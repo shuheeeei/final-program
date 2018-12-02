@@ -23,9 +23,9 @@ class PointsController < ApplicationController
 
 
   def show
-    @points = Point.where(user_id: current_user.id).page(params[:page]).per(10).order("created_at DESC")
+    points = Point.where(user_id: current_user.id).order("created_at DESC")
     @meigens = []
-    @points.each do |point|
+    points.each do |point|
       @meigens << point.meigen
     end
   end
