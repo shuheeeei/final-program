@@ -137,9 +137,7 @@
       top: calc(50% - 200px);
       left: calc(50% - 37.5vw);
       z-index: 20;
-      min-height: 400px;
       width: 75vw;
-      overflow: scroll;
       background: linear-gradient(90deg, #8e9eab, #eef2f3) fixed;
       transform: 2s;
       color: #5d627b;
@@ -178,9 +176,9 @@
         box-sizing: border-box;
         text-align: center;
         width: 25vw;
-        &__content {
-          word-wrap: break-word;
-          text-align: left;
+        &__box {
+          height: 400px;
+          overflow: scroll;
         }
         a {
           @include link-style();
