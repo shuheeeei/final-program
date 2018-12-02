@@ -73,20 +73,23 @@
             .meigen-search-modal__content
               .meigen-search-modal__content__header
                 %h1 名言を探す
-                = form_tag search_meigens_path, method: :get do
-                  = text_field_tag :keyword, "", placeholder: "キーワードを入力してください", class: "search-field"
-                  = text_field_tag :dummy, "", class: "dummy-field"
+                %input{type: "text", placeholder: "キーワードを入力してください", class: "search-field"}
+                %input{type: "text", placeholder: "キーワードを入力してください", class: "dummy-field"}
                 .search-close
                   %i.fas.fa-times#modal-close
+
               .meigen-search-modal__content__result
                 %h2 名言
-                %ul.search-result1
+                .meigen-search-modal__content__result__box
+                  %ul.search-result1
               .meigen-search-modal__content__result#search-result-center
                 %h2 名言の出典
-                %ul.search-result2
+                .meigen-search-modal__content__result__box
+                  %ul.search-result2
               .meigen-search-modal__content__result#search-result-right
                 %h2 タグ
-                %ul.search-result3
+                .meigen-search-modal__content__result__box
+                  %ul.search-result3
 
           .header-notice
             = notice

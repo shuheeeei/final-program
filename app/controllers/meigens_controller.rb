@@ -69,9 +69,23 @@ class MeigensController < ApplicationController
     redirect_to meigens_path
   end
 
-  def search
+  def contentSearch
     @meigens = Meigen.contents(params[:keyword])
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
+  def sourceSearch
     @source_meigens = Meigen.sources(params[:keyword])
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
+  def tagSearch
     @tag_meigens = Meigen.tags(params[:keyword])
     respond_to do |format|
       format.html
